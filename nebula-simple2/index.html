@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 Nebula - Спортивная платформа</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2306b6d4;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23grad)'/%3E%3Ctext x='50' y='60' font-family='Arial' font-size='40' font-weight='bold' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 25px;
+            color: #8b5cf6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-right: 16px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .live-streams {
+            display: grid;
+            gap: 20px;
+        }
+
+        .stream-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .stream-icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+        }
+
+        .stream-info {
+            flex: 1;
+        }
+
+        .stream-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stream-details {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .live-badge {
+            background: #ef4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .ai-chat {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .chat-messages {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            max-width: 80%;
+        }
+
+        .message.user {
+            background: #8b5cf6;
+            margin-left: auto;
+        }
+
+        .message.ai {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 25px;
+            background: rgba(30, 41, 59, 0.8);
+            color: #f8fafc;
+            font-size: 1rem;
+        }
+
+        .chat-input button {
+            padding: 12px 24px;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: #7c3aed;
+        }
+
+        .nutrition-tracker {
+            display: grid;
+            gap: 20px;
+        }
+
+        .meal-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .meal-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+        }
+
+        .meal-info {
+            flex: 1;
+        }
+
+        .meal-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .meal-time {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .meal-calories {
+            text-align: center;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .workout-plans {
+            display: grid;
+            gap: 20px;
+        }
+
+        .workout-card {
+            padding: 24px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .workout-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .workout-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .workout-duration {
+            color: #94a3b8;
+        }
+
+        .exercise-list {
+            margin-bottom: 20px;
+        }
+
+        .exercise-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .start-button {
+            width: 100%;
+            padding: 16px;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .start-button:hover {
+            background: #7c3aed;
+        }
+
+        .travel-options {
+            display: grid;
+            gap: 20px;
+        }
+
+        .transport-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .transport-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+        }
+
+        .transport-info {
+            flex: 1;
+        }
+
+        .transport-type {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .transport-price {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .community-posts {
+            display: grid;
+            gap: 20px;
+        }
+
+        .post-card {
+            padding: 24px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .post-avatar {
+            font-size: 2rem;
+            margin-right: 16px;
+        }
+
+        .post-author {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .post-time {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .post-content {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            color: #8b5cf6;
+        }
+
+        .main-live {
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 0 24px 0 #8b5cf633;
+        }
+        .stream-card {
+            background: linear-gradient(120deg, #232b4d 60%, #8b5cf6 100%);
+            border-radius: 24px;
+            padding: 32px 24px 24px 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 32px 0 #8b5cf655;
+            color: #fff;
+            position: relative;
+        }
+        .stream-card .stream-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .stream-card .stream-details {
+            color: #c7d2fe;
+            margin-bottom: 16px;
+        }
+        .stream-card .live-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: #ef4444;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px #ef444488;
+        }
+        .stream-card .chat-group {
+            background: rgba(30,41,59,0.95);
+            border-radius: 16px;
+            margin-top: 24px;
+            padding: 16px;
+        }
+        .chat-messages-group {
+            max-height: 220px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+        }
+        .message-group {
+            margin-bottom: 10px;
+            padding: 10px 14px;
+            border-radius: 16px;
+            max-width: 80%;
+            word-break: break-word;
+        }
+        .message-group.user {
+            background: #8b5cf6;
+            margin-left: auto;
+            color: #fff;
+        }
+        .message-group.other {
+            background: #374151;
+            color: #fff;
+        }
+        .message-group.voice {
+            background: #06b6d4;
+            color: #fff;
+            font-style: italic;
+        }
+        .message-group.circle {
+            background: #fff;
+            color: #8b5cf6;
+            border: 2px solid #8b5cf6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chat-input-group {
+            display: flex;
+            gap: 8px;
+        }
+        .chat-input-group input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 20px;
+            border: 1px solid #8b5cf6;
+            background: #232b4d;
+            color: #fff;
+        }
+        .chat-input-group button {
+            background: #8b5cf6;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .chat-input-group button:hover {
+            background: #7c3aed;
+        }
+        .chat-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .chat-action-btn {
+            background: #374151;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .chat-action-btn:hover {
+            background: #8b5cf6;
+        }
+
+        .smart-camera-btn {
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 12px #8b5cf655;
+            transition: background 0.2s;
+        }
+        .smart-camera-btn:hover {
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+        }
+        .recipes-section {
+            margin-top: 32px;
+        }
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+        .recipe-card {
+            background: #232b4d;
+            border-radius: 16px;
+            padding: 18px 16px;
+            color: #fff;
+            box-shadow: 0 2px 12px #8b5cf655;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .recipe-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .recipe-desc {
+            color: #c7d2fe;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .add-recipe-btn {
+            background: #8b5cf6;
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            padding: 8px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .add-recipe-btn:hover {
+            background: #06b6d4;
+        }
+        .travel-services {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .travel-service-btn {
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            color: #fff;
+            border: none;
+            border-radius: 18px;
+            padding: 14px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 12px #8b5cf655;
+            transition: background 0.2s;
+        }
+        .travel-service-btn:hover {
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+        }
+        .map-section {
+            background: #232b4d;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 24px;
+            min-height: 220px;
+            position: relative;
+            color: #fff;
+        }
+        .map-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .map-point {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #8b5cf655;
+            border: 2px solid #fff;
+            transition: background 0.2s;
+        }
+        .map-point:hover {
+            background: #06b6d4;
+        }
+        .calendar-section {
+            margin-top: 24px;
+            background: #232b4d;
+            border-radius: 18px;
+            padding: 18px;
+            color: #fff;
+            box-shadow: 0 2px 12px #8b5cf655;
+        }
+        .calendar-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .calendar-day {
+            background: #374151;
+            color: #c7d2fe;
+            border-radius: 8px;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .calendar-day.active {
+            background: #8b5cf6;
+            color: #fff;
+            font-weight: bold;
+        }
+        .calendar-day.today {
+            border: 2px solid #06b6d4;
+        }
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-bottom: 2px;
+            color: #8b5cf6;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .modal-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30,41,59,0.85);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-window {
+            background: #fff;
+            color: #232b4d;
+            border-radius: 18px;
+            padding: 32px 24px;
+            min-width: 320px;
+            max-width: 90vw;
+            box-shadow: 0 4px 32px #8b5cf655;
+            text-align: center;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #8b5cf6;
+            cursor: pointer;
+        }
+
+        /* Account Profile Styles */
+        .account-profile {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+            padding: 24px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .profile-avatar {
+            flex-shrink: 0;
+        }
+
+        .avatar-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #8b5cf6;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+
+        .profile-email {
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .edit-profile-btn {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .edit-profile-btn:hover {
+            background: #7c3aed;
+        }
+
+        .profile-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .profile-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f8fafc;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+        }
+
+        .teams-list, .recipes-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .team-item, .recipe-item {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #8b5cf6;
+            font-size: 0.9rem;
+        }
+
+        .workout-history {
+            display: grid;
+            gap: 12px;
+        }
+
+        .workout-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .workout-date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .workout-type {
+            font-weight: 500;
+            color: #f8fafc;
+        }
+
+        .workout-duration {
+            color: #8b5cf6;
+            font-weight: 600;
+        }
+
+        .profile-actions {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .logout-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+
+        /* Registration Screen Styles */
+        .registration-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .registration-container {
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .registration-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .registration-header h1 {
+            font-size: 2rem;
+            margin: 16px 0 8px 0;
+            color: #f8fafc;
+        }
+
+        .registration-header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .registration-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group label {
+            color: #f8fafc;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px 16px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            color: #f8fafc;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #64748b;
+        }
+
+        .register-btn {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Food Delivery Styles */
+        .delivery-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .delivery-options {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .delivery-btn {
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 12px #8b5cf655;
+            transition: transform 0.2s;
+        }
+
+        .delivery-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .ai-recommendations {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .ai-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #8b5cf6;
+            margin-bottom: 16px;
+        }
+
+        .match-recommendations {
+            display: grid;
+            gap: 16px;
+        }
+
+        .recommendation-item {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .match-info {
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        .recommended-food {
+            color: #94a3b8;
+            margin-bottom: 12px;
+        }
+
+        .order-recommended {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .order-recommended:hover {
+            background: #7c3aed;
+        }
+
+        /* Enhanced Travel Styles */
+        .taxi-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .taxi-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .taxi-type-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .taxi-type-card:hover {
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+
+        .taxi-icon {
+            font-size: 2rem;
+        }
+
+        .taxi-info {
+            flex: 1;
+        }
+
+        .taxi-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 4px;
+        }
+
+        .taxi-price {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .transport-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .transport-card:hover {
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+
+        .transport-arrow {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #8b5cf6;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .transport-card:hover .transport-arrow {
+            opacity: 1;
+        }
+
+        /* Subscription Plans Styles */
+        .subscription-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .subscription-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .subscription-card:hover {
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+
+        .subscription-card.popular {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .subscription-card.vip {
+            border-color: #f59e0b;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .subscription-badge {
+            position: absolute;
+            top: -8px;
+            right: 16px;
+            background: #8b5cf6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .subscription-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        .subscription-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 16px;
+        }
+
+        .subscription-card.vip .subscription-price {
+            color: #f59e0b;
+        }
+
+        .subscription-features {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .subscription-features div {
+            margin-bottom: 4px;
+        }
+
+        /* Device Integration Styles */
+        .device-integration {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .device-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .device-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+        }
+
+        .device-card:hover {
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+
+        .device-icon {
+            font-size: 2rem;
+        }
+
+        .device-info {
+            flex: 1;
+        }
+
+        .device-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 4px;
+        }
+
+        .device-status {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .device-status.connected {
+            color: #10b981;
+        }
+
+        .device-arrow {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #8b5cf6;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .device-card:hover .device-arrow {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-tab {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2306b6d4;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23grad)'/%3E%3Ctext x='50' y='60' font-family='Arial' font-size='40' font-weight='bold' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E" alt="Nebula Logo" class="logo-img">
+                <span class="logo-text">Nebula</span>
+            </div>
+            <div class="subtitle">Спортивная платформа будущего</div>
+        </div>
+
+        <div class="nav-tabs">
+            <div class="nav-tab" onclick="showTab('live')" id="tab-live">📺 Live Streams</div>
+            <div class="nav-tab" onclick="showTab('ai')">🤖 AI Assistant</div>
+            <div class="nav-tab" onclick="showTab('nutrition')">🥗 Nutrition</div>
+            <div class="nav-tab" onclick="showTab('workouts')">💪 Workouts</div>
+            <div class="nav-tab" onclick="showTab('travel')">✈️ Travel</div>
+            <div class="nav-tab" onclick="showTab('community')">👥 Community</div>
+            <div class="nav-tab" onclick="showTab('account')">👤 Аккаунт</div>
+            <div class="nav-tab" onclick="showTab('dashboard')">🏠 Dashboard</div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="content active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <div class="card-title">Статистика</div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Тренировок</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">2,450</div>
+                            <div class="stat-label">Калории</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">8,432</div>
+                            <div class="stat-label">Шаги</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">7.5ч</div>
+                            <div class="stat-label">Сон</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-title">Быстрые действия</div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item" onclick="showTab('workouts')">
+                            <div class="stat-value">🏃‍♂️</div>
+                            <div class="stat-label">Тренировка</div>
+                        </div>
+                        <div class="stat-item" onclick="showTab('nutrition')">
+                            <div class="stat-value">🍎</div>
+                            <div class="stat-label">Питание</div>
+                        </div>
+                        <div class="stat-item" onclick="showTab('travel')">
+                            <div class="stat-value">✈️</div>
+                            <div class="stat-label">Путешествие</div>
+                        </div>
+                        <div class="stat-item" onclick="showTab('ai')">
+                            <div class="stat-value">🤖</div>
+                            <div class="stat-label">AI Помощь</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📅</div>
+                        <div class="card-title">Ближайшие события</div>
+                    </div>
+                    <div class="stream-item">
+                        <div class="stream-icon">⚽</div>
+                        <div class="stream-info">
+                            <div class="stream-title">Футбольный матч</div>
+                            <div class="stream-details">Сегодня 20:00</div>
+                        </div>
+                        <div class="live-badge">LIVE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Streams -->
+        <div id="live" class="content active main-live">
+            <div class="stream-card">
+                <div class="stream-title">Real Madrid vs Barcelona</div>
+                <div class="stream-details">Футбол • 2.4M зрителей • AR/VR</div>
+                <div class="live-badge">LIVE</div>
+                <div class="chat-group" id="chat-group-1">
+                    <div class="chat-messages-group" id="chat-messages-1"></div>
+                    <div class="chat-actions">
+                        <button class="chat-action-btn" onclick="sendCircle(1)">⭕️</button>
+                        <button class="chat-action-btn" onclick="sendVoice(1)">🎤</button>
+                    </div>
+                    <div class="chat-input-group">
+                        <input type="text" id="chatInput-1" placeholder="Сообщение..." onkeypress="if(event.key==='Enter'){sendMessageGroup(1)}">
+                        <button onclick="sendMessageGroup(1)">Отправить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="stream-card">
+                <div class="stream-title">NBA Finals Game 7</div>
+                <div class="stream-details">Баскетбол • 1.8M зрителей • AR</div>
+                <div class="live-badge">LIVE</div>
+                <div class="chat-group" id="chat-group-2">
+                    <div class="chat-messages-group" id="chat-messages-2"></div>
+                    <div class="chat-actions">
+                        <button class="chat-action-btn" onclick="sendCircle(2)">⭕️</button>
+                        <button class="chat-action-btn" onclick="sendVoice(2)">🎤</button>
+                    </div>
+                    <div class="chat-input-group">
+                        <input type="text" id="chatInput-2" placeholder="Сообщение..." onkeypress="if(event.key==='Enter'){sendMessageGroup(2)}">
+                        <button onclick="sendMessageGroup(2)">Отправить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="stream-card">
+                <div class="stream-title">Tennis Grand Slam</div>
+                <div class="stream-details">Теннис • 890K зрителей • VR</div>
+                <div class="live-badge">LIVE</div>
+                <div class="chat-group" id="chat-group-3">
+                    <div class="chat-messages-group" id="chat-messages-3"></div>
+                    <div class="chat-actions">
+                        <button class="chat-action-btn" onclick="sendCircle(3)">⭕️</button>
+                        <button class="chat-action-btn" onclick="sendVoice(3)">🎤</button>
+                    </div>
+                    <div class="chat-input-group">
+                        <input type="text" id="chatInput-3" placeholder="Сообщение..." onkeypress="if(event.key==='Enter'){sendMessageGroup(3)}">
+                        <button onclick="sendMessageGroup(3)">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Assistant -->
+        <div id="ai" class="content">
+            <div class="ai-chat">
+                <div class="chat-messages">
+                    <div class="message ai">
+                        Привет! Я ваш AI ассистент Nebula. Чем могу помочь?
+                    </div>
+                    <div class="message user">
+                        Какой у меня план тренировок на сегодня?
+                    </div>
+                    <div class="message ai">
+                        Сегодня у вас запланирована кардио тренировка: 30 минут бега + 20 минут велотренажера. Хотите, чтобы я скорректировал план?
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Напишите сообщение..." id="chatInput">
+                    <button onclick="sendMessage()">Отправить</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nutrition -->
+        <div id="nutrition" class="content">
+            <button class="smart-camera-btn" onclick="openModal('camera')">📷 Умная камера (AI)</button>
+            
+            <!-- Food Delivery Section -->
+            <div class="delivery-section">
+                <div class="section-title">🍕 Заказ еды</div>
+                <div class="delivery-options">
+                    <button class="delivery-btn" onclick="openDeliveryModal('restaurants')">🍽️ Рестораны</button>
+                    <button class="delivery-btn" onclick="openDeliveryModal('grocery')">🛒 Продуктовые магазины</button>
+                </div>
+                <div class="ai-recommendations">
+                    <div class="ai-title">🤖 AI рекомендует по матчу:</div>
+                    <div class="match-recommendations" id="match-recommendations">
+                        <div class="recommendation-item">
+                            <div class="match-info">⚽ Real Madrid vs Barcelona</div>
+                            <div class="recommended-food">🍕 Пицца "Маргарита" + 🍺 Пиво</div>
+                            <button class="order-recommended" onclick="orderRecommended('pizza-margherita')">Заказать</button>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="match-info">🏀 NBA Finals</div>
+                            <div class="recommended-food">🍗 Куриные крылышки + 🥤 Кола</div>
+                            <button class="order-recommended" onclick="orderRecommended('chicken-wings')">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nutrition-tracker">
+                <div class="meal-card">
+                    <div class="meal-icon">🌅</div>
+                    <div class="meal-info">
+                        <div class="meal-name">Завтрак</div>
+                        <div class="meal-time">08:00</div>
+                    </div>
+                    <div class="meal-calories">450 kcal</div>
+                </div>
+                <div class="meal-card">
+                    <div class="meal-icon">☀️</div>
+                    <div class="meal-info">
+                        <div class="meal-name">Обед</div>
+                        <div class="meal-time">13:00</div>
+                    </div>
+                    <div class="meal-calories">650 kcal</div>
+                </div>
+                <div class="meal-card">
+                    <div class="meal-icon">🌙</div>
+                    <div class="meal-info">
+                        <div class="meal-name">Ужин</div>
+                        <div class="meal-time">19:00</div>
+                    </div>
+                    <div class="meal-calories">520 kcal</div>
+                </div>
+            </div>
+            <div class="recipes-section">
+                <h3>🍲 Рецепты</h3>
+                <div class="recipes-grid">
+                    <div class="recipe-card">
+                        <div class="recipe-title">Овсянка с ягодами</div>
+                        <div class="recipe-desc">Овсяные хлопья, молоко, ягоды, мёд</div>
+                        <button class="add-recipe-btn" onclick="addToMealPlan('Овсянка с ягодами')">Добавить в рацион</button>
+                    </div>
+                    <div class="recipe-card">
+                        <div class="recipe-title">Куриная грудка с овощами</div>
+                        <div class="recipe-desc">Куриная грудка, брокколи, морковь, оливковое масло</div>
+                        <button class="add-recipe-btn" onclick="addToMealPlan('Куриная грудка с овощами')">Добавить в рацион</button>
+                    </div>
+                    <div class="recipe-card">
+                        <div class="recipe-title">Смузи из банана и шпината</div>
+                        <div class="recipe-desc">Банан, шпинат, йогурт, семена чиа</div>
+                        <button class="add-recipe-btn" onclick="addToMealPlan('Смузи из банана и шпината')">Добавить в рацион</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workouts -->
+        <div id="workouts" class="content">
+            <!-- Device Integration Section -->
+            <div class="device-integration">
+                <div class="section-title">⌚ Подключение устройств</div>
+                <div class="device-cards">
+                    <div class="device-card" onclick="connectDevice('apple-watch')">
+                        <div class="device-icon">⌚</div>
+                        <div class="device-info">
+                            <div class="device-name">Apple Watch</div>
+                            <div class="device-status" id="apple-watch-status">Не подключено</div>
+                        </div>
+                        <div class="device-arrow">→</div>
+                    </div>
+                    <div class="device-card" onclick="connectDevice('fitbit')">
+                        <div class="device-icon">📱</div>
+                        <div class="device-info">
+                            <div class="device-name">Fitbit</div>
+                            <div class="device-status" id="fitbit-status">Не подключено</div>
+                        </div>
+                        <div class="device-arrow">→</div>
+                    </div>
+                    <div class="device-card" onclick="connectDevice('garmin')">
+                        <div class="device-icon">🏃‍♂️</div>
+                        <div class="device-info">
+                            <div class="device-name">Garmin</div>
+                            <div class="device-status" id="garmin-status">Не подключено</div>
+                        </div>
+                        <div class="device-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="workout-plans">
+                <div class="workout-card">
+                    <div class="workout-header">
+                        <div>
+                            <div class="workout-name">Кардио + Сила</div>
+                            <div class="workout-duration">45 минут</div>
+                        </div>
+                        <div class="meal-calories">320 kcal</div>
+                    </div>
+                    <div class="exercise-list">
+                        <div class="exercise-item">
+                            <span>Бег</span>
+                            <span>20 мин</span>
+                        </div>
+                        <div class="exercise-item">
+                            <span>Приседания</span>
+                            <span>3x15</span>
+                        </div>
+                        <div class="exercise-item">
+                            <span>Планка</span>
+                            <span>3x1 мин</span>
+                        </div>
+                    </div>
+                    <button class="start-button">Начать тренировку</button>
+                </div>
+            </div>
+            <div class="calendar-section">
+                <div class="calendar-title">Календарь активности</div>
+                <div class="calendar-weekdays">
+                    <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+        </div>
+
+        <!-- Travel -->
+        <div id="travel" class="content">
+            <!-- Enhanced Taxi Section -->
+            <div class="taxi-section">
+                <div class="section-title">🚕 Заказ такси</div>
+                <div class="taxi-types">
+                    <div class="taxi-type-card" onclick="openTaxiModal('economy')">
+                        <div class="taxi-icon">🚗</div>
+                        <div class="taxi-info">
+                            <div class="taxi-name">Эконом</div>
+                            <div class="taxi-price">от 150₽</div>
+                        </div>
+                    </div>
+                    <div class="taxi-type-card" onclick="openTaxiModal('comfort')">
+                        <div class="taxi-icon">🚙</div>
+                        <div class="taxi-info">
+                            <div class="taxi-name">Комфорт</div>
+                            <div class="taxi-price">от 250₽</div>
+                        </div>
+                    </div>
+                    <div class="taxi-type-card" onclick="openTaxiModal('business')">
+                        <div class="taxi-icon">🚘</div>
+                        <div class="taxi-info">
+                            <div class="taxi-name">Бизнес</div>
+                            <div class="taxi-price">от 400₽</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="travel-services">
+                <button class="travel-service-btn" onclick="openModal('escooter')">🛴 Аренда самоката/велосипеда</button>
+                <button class="travel-service-btn" onclick="openModal('powerbank')">🔋 Аренда повербанка</button>
+            </div>
+            <div class="map-section">
+                <div class="map-title">Карта сервисов</div>
+                <div class="map-point" style="top:60px;left:40px;" onclick="openModal('taxi')">🚕</div>
+                <div class="map-point" style="top:120px;left:120px;" onclick="openModal('escooter')">🛴</div>
+                <div class="map-point" style="top:80px;left:220px;" onclick="openModal('powerbank')">🔋</div>
+                <div style="margin-top:160px;color:#c7d2fe;font-size:0.95rem;">*Карта интерактивна, выберите сервис</div>
+            </div>
+            <div class="travel-options">
+                <div class="transport-card" onclick="openTransportModal('airplane')">
+                    <div class="transport-icon">✈️</div>
+                    <div class="transport-info">
+                        <div class="transport-type">Самолет</div>
+                        <div class="transport-price">от 8,500₽</div>
+                    </div>
+                    <div class="transport-arrow">→</div>
+                </div>
+                <div class="transport-card" onclick="openTransportModal('train')">
+                    <div class="transport-icon">🚄</div>
+                    <div class="transport-info">
+                        <div class="transport-type">Поезд</div>
+                        <div class="transport-price">от 2,300₽</div>
+                    </div>
+                    <div class="transport-arrow">→</div>
+                </div>
+                <div class="transport-card" onclick="openTransportModal('bus')">
+                    <div class="transport-icon">🚌</div>
+                    <div class="transport-info">
+                        <div class="transport-type">Автобус</div>
+                        <div class="transport-price">от 1,800₽</div>
+                    </div>
+                    <div class="transport-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account -->
+        <div id="account" class="content">
+            <div class="account-profile">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ccircle cx='50' cy='35' r='15' fill='white'/%3E%3Cpath d='M20 80 Q50 60 80 80 L80 100 L20 100 Z' fill='white'/%3E%3C/svg%3E" alt="Avatar" class="avatar-img">
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-name" id="profile-name">Пользователь</div>
+                        <div class="profile-email" id="profile-email">user@nebula.com</div>
+                        <button class="edit-profile-btn" onclick="editProfile()">✏️ Редактировать</button>
+                    </div>
+                </div>
+
+                <div class="profile-sections">
+                    <div class="profile-section">
+                        <div class="section-title">📊 Физические характеристики</div>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-label">Рост</div>
+                                <div class="stat-value" id="user-height">175 см</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Вес</div>
+                                <div class="stat-value" id="user-weight">70 кг</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Возраст</div>
+                                <div class="stat-value" id="user-age">25 лет</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-title">⚽ Любимые команды</div>
+                        <div class="teams-list" id="favorite-teams">
+                            <div class="team-item">🏆 Real Madrid</div>
+                            <div class="team-item">🏀 Los Angeles Lakers</div>
+                            <div class="team-item">🎾 Rafael Nadal</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-title">💪 История тренировок</div>
+                        <div class="workout-history">
+                            <div class="workout-item">
+                                <div class="workout-date">Сегодня</div>
+                                <div class="workout-type">Кардио + Сила</div>
+                                <div class="workout-duration">45 мин</div>
+                            </div>
+                            <div class="workout-item">
+                                <div class="workout-date">Вчера</div>
+                                <div class="workout-type">Бег</div>
+                                <div class="workout-duration">30 мин</div>
+                            </div>
+                            <div class="workout-item">
+                                <div class="workout-date">2 дня назад</div>
+                                <div class="workout-type">Йога</div>
+                                <div class="workout-duration">60 мин</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-title">🍽️ Любимые рецепты</div>
+                        <div class="recipes-list" id="favorite-recipes">
+                            <div class="recipe-item">🥗 Салат "Цезарь"</div>
+                            <div class="recipe-item">🍗 Курица с овощами</div>
+                            <div class="recipe-item">🥤 Смузи из банана</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-title">💎 Платные подписки</div>
+                        <div class="subscription-plans">
+                            <div class="subscription-card" onclick="selectSubscription('basic')">
+                                <div class="subscription-name">Базовый</div>
+                                <div class="subscription-price">990₽/мес</div>
+                                <div class="subscription-features">
+                                    <div>• Базовые тренировки</div>
+                                    <div>• Простая аналитика</div>
+                                    <div>• Ограниченные рецепты</div>
+                                </div>
+                            </div>
+                            <div class="subscription-card popular" onclick="selectSubscription('pro')">
+                                <div class="subscription-badge">Популярный</div>
+                                <div class="subscription-name">Про</div>
+                                <div class="subscription-price">2990₽/мес</div>
+                                <div class="subscription-features">
+                                    <div>• Все тренировки</div>
+                                    <div>• Продвинутая аналитика</div>
+                                    <div>• Персональный тренер AI</div>
+                                    <div>• Безлимитные рецепты</div>
+                                </div>
+                            </div>
+                            <div class="subscription-card" onclick="selectSubscription('premium')">
+                                <div class="subscription-name">Премиум</div>
+                                <div class="subscription-price">3990₽/мес</div>
+                                <div class="subscription-features">
+                                    <div>• Все функции Про</div>
+                                    <div>• AR/VR тренировки</div>
+                                    <div>• Интеграция с устройствами</div>
+                                    <div>• Приоритетная поддержка</div>
+                                </div>
+                            </div>
+                            <div class="subscription-card" onclick="selectSubscription('elite')">
+                                <div class="subscription-name">Элит</div>
+                                <div class="subscription-price">7990₽/мес</div>
+                                <div class="subscription-features">
+                                    <div>• Все функции Премиум</div>
+                                    <div>• Персональный тренер</div>
+                                    <div>• Эксклюзивные матчи</div>
+                                    <div>• VIP события</div>
+                                </div>
+                            </div>
+                            <div class="subscription-card vip" onclick="selectSubscription('vip')">
+                                <div class="subscription-name">VIP</div>
+                                <div class="subscription-price">16990₽/мес</div>
+                                <div class="subscription-features">
+                                    <div>• Все функции Элит</div>
+                                    <div>• 24/7 персональный помощник</div>
+                                    <div>• Эксклюзивный контент</div>
+                                    <div>• Приватные тренировки</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="logout-btn" onclick="logout()">🚪 Выйти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community -->
+        <div id="community" class="content">
+            <div class="community-posts">
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar">👨‍💼</div>
+                        <div>
+                            <div class="post-author">Алексей</div>
+                            <div class="post-time">2 часа назад</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        Отличная тренировка сегодня! Побил свой рекорд в жиме лежа 🏋️
+                    </div>
+                    <div class="post-actions">
+                        <div class="action-btn">❤️ 24</div>
+                        <div class="action-btn">💬 8</div>
+                        <div class="action-btn">📤 Поделиться</div>
+                    </div>
+                </div>
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar">👩‍🏃‍♀️</div>
+                        <div>
+                            <div class="post-author">Мария</div>
+                            <div class="post-time">5 часов назад</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        Пробежала полумарафон за 1:45! Следующая цель - марафон 🏃‍♀️
+                    </div>
+                    <div class="post-actions">
+                        <div class="action-btn">❤️ 67</div>
+                        <div class="action-btn">💬 15</div>
+                        <div class="action-btn">📤 Поделиться</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-bg" class="modal-bg" style="display:none;">
+        <div class="modal-window" id="modal-window">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Registration Screen -->
+    <div id="registration-screen" class="registration-screen" style="display:none;">
+        <div class="registration-container">
+            <div class="registration-header">
+                <div class="logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2306b6d4;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23grad)'/%3E%3Ctext x='50' y='60' font-family='Arial' font-size='40' font-weight='bold' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E" alt="Nebula Logo" class="logo-img">
+                    <span class="logo-text">Nebula</span>
+                </div>
+                <h1>Добро пожаловать!</h1>
+                <p>Создайте свой профиль для персонализированного опыта</p>
+            </div>
+
+            <form class="registration-form" id="registration-form">
+                <div class="form-group">
+                    <label for="reg-name">Имя</label>
+                    <input type="text" id="reg-name" name="name" required placeholder="Введите ваше имя">
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" name="email" required placeholder="Введите ваш email">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reg-height">Рост (см)</label>
+                        <input type="number" id="reg-height" name="height" required placeholder="175">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-weight">Вес (кг)</label>
+                        <input type="number" id="reg-weight" name="weight" required placeholder="70">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reg-age">Возраст</label>
+                        <input type="number" id="reg-age" name="age" required placeholder="25">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-gender">Пол</label>
+                        <select id="reg-gender" name="gender" required>
+                            <option value="">Выберите</option>
+                            <option value="male">Мужской</option>
+                            <option value="female">Женский</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-teams">Любимые команды (через запятую)</label>
+                    <input type="text" id="reg-teams" name="teams" placeholder="Real Madrid, Los Angeles Lakers, Rafael Nadal">
+                </div>
+
+                <button type="submit" class="register-btn">🚀 Создать профиль</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Скрыть все контенты
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Убрать активный класс со всех табов
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Показать выбранный контент
+            document.getElementById(tabName).classList.add('active');
+            
+            // Добавить активный класс выбранному табу
+            event.target.classList.add('active');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                const chatMessages = document.querySelector('.chat-messages');
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user';
+                userMessage.textContent = message;
+                
+                chatMessages.appendChild(userMessage);
+                input.value = '';
+                
+                // Автоматический ответ AI
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'message ai';
+                    aiMessage.textContent = 'Спасибо за сообщение! Я обрабатываю ваш запрос...';
+                    chatMessages.appendChild(aiMessage);
+                    
+                    // Прокрутка к последнему сообщению
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+                
+                // Прокрутка к последнему сообщению
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        // Отправка сообщения по Enter
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Групповые чаты для трансляций
+        const chatHistory = {
+            1: [
+                {type:'other', text:'Всем привет! Кто за кого болеет?'},
+                {type:'user', text:'За Барсу!'},
+                {type:'other', text:'Real Madrid топ!'},
+            ],
+            2: [
+                {type:'other', text:'Финал будет жарким!'},
+                {type:'user', text:'Go Lakers!'},
+            ],
+            3: [
+                {type:'other', text:'Кто фаворит турнира?'},
+            ]
+        };
+        function renderChat(group) {
+            const box = document.getElementById('chat-messages-'+group);
+            box.innerHTML = '';
+            chatHistory[group].forEach(msg => {
+                const div = document.createElement('div');
+                div.className = 'message-group ' + msg.type;
+                div.textContent = msg.text;
+                box.appendChild(div);
+            });
+            box.scrollTop = box.scrollHeight;
+        }
+        function sendMessageGroup(group) {
+            const input = document.getElementById('chatInput-'+group);
+            const text = input.value.trim();
+            if(text) {
+                chatHistory[group].push({type:'user', text});
+                renderChat(group);
+                input.value = '';
+                setTimeout(()=>{
+                    chatHistory[group].push({type:'other', text:'AI: Спасибо за сообщение!'});
+                    renderChat(group);
+                }, 900);
+            }
+        }
+        function sendCircle(group) {
+            chatHistory[group].push({type:'circle', text:'[Кружок] Видео/Аудио сообщение'});
+            renderChat(group);
+        }
+        function sendVoice(group) {
+            chatHistory[group].push({type:'voice', text:'[Голосовой чат] Подключение...'});
+            renderChat(group);
+        }
+        // Инициализация чатов при загрузке
+        window.addEventListener('DOMContentLoaded',()=>{
+            renderChat(1);renderChat(2);renderChat(3);
+        });
+
+        function openModal(type) {
+            const modal = document.getElementById('modal-bg');
+            const content = document.getElementById('modal-content');
+            let html = '';
+            if(type==='camera') {
+                html = '<h2>Умная камера</h2><p>Загрузите фото блюда или наведите камеру для AI-анализа (имитация).</p><button onclick="closeModal()">Готово</button>';
+            } else if(type==='add-recipe') {
+                html = '<h2>Добавлено!</h2><p>Рецепт добавлен в ваш рацион (имитация).</p>';
+            } else if(type==='taxi') {
+                html = '<h2>Заказ такси</h2><p>Такси вызвано! Время ожидания: 3 мин (имитация).</p>';
+            } else if(type==='escooter') {
+                html = '<h2>Аренда самоката/велосипеда</h2><p>Самокат/велосипед забронирован! (имитация)</p>';
+            } else if(type==='powerbank') {
+                html = '<h2>Аренда повербанка</h2><p>Повербанк доступен в ближайшей точке! (имитация)</p>';
+            } else if(type==='day'+new Date().getDate()) {
+                html = '<h2>Активность</h2><p>Сегодня вы провели тренировку (имитация).</p>';
+            } else {
+                html = '<h2>Действие</h2><p>Имитация действия.</p>';
+            }
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal-bg').style.display = 'none';
+        }
+        // Календарь активности (имитация)
+        const calendarGrid = document.getElementById('calendar-grid');
+        if(calendarGrid) {
+            const daysInMonth = 30;
+            const today = new Date().getDate();
+            const activeDays = [2,4,7,10,12,15,18,21,23,25,28];
+            for(let i=1;i<=daysInMonth;i++) {
+                const div = document.createElement('div');
+                div.className = 'calendar-day';
+                if(activeDays.includes(i)) div.classList.add('active');
+                if(i===today) div.classList.add('today');
+                div.textContent = i;
+                div.onclick = ()=>openModal('day'+i);
+                calendarGrid.appendChild(div);
+            }
+        }
+
+        // User Profile Management
+        let userProfile = null;
+
+        // Check if user is logged in on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedProfile = localStorage.getItem('nebula-user-profile');
+            if (savedProfile) {
+                userProfile = JSON.parse(savedProfile);
+                updateProfileDisplay();
+            } else {
+                showRegistrationScreen();
+            }
+        });
+
+        function showRegistrationScreen() {
+            document.getElementById('registration-screen').style.display = 'flex';
+            document.querySelector('.container').style.display = 'none';
+        }
+
+        function hideRegistrationScreen() {
+            document.getElementById('registration-screen').style.display = 'none';
+            document.querySelector('.container').style.display = 'block';
+        }
+
+        function updateProfileDisplay() {
+            if (!userProfile) return;
+
+            document.getElementById('profile-name').textContent = userProfile.name;
+            document.getElementById('profile-email').textContent = userProfile.email;
+            document.getElementById('user-height').textContent = userProfile.height + ' см';
+            document.getElementById('user-weight').textContent = userProfile.weight + ' кг';
+            document.getElementById('user-age').textContent = userProfile.age + ' лет';
+
+            // Update favorite teams
+            const teamsList = document.getElementById('favorite-teams');
+            teamsList.innerHTML = '';
+            if (userProfile.teams && userProfile.teams.length > 0) {
+                userProfile.teams.forEach(team => {
+                    const teamItem = document.createElement('div');
+                    teamItem.className = 'team-item';
+                    teamItem.textContent = '🏆 ' + team.trim();
+                    teamsList.appendChild(teamItem);
+                });
+            }
+
+            // Update favorite recipes (from nutrition section)
+            const recipesList = document.getElementById('favorite-recipes');
+            recipesList.innerHTML = '';
+            if (userProfile.favoriteRecipes && userProfile.favoriteRecipes.length > 0) {
+                userProfile.favoriteRecipes.forEach(recipe => {
+                    const recipeItem = document.createElement('div');
+                    recipeItem.className = 'recipe-item';
+                    recipeItem.textContent = '🍽️ ' + recipe;
+                    recipesList.appendChild(recipeItem);
+                });
+            }
+        }
+
+        function editProfile() {
+            // Fill registration form with current data
+            document.getElementById('reg-name').value = userProfile.name;
+            document.getElementById('reg-email').value = userProfile.email;
+            document.getElementById('reg-height').value = userProfile.height;
+            document.getElementById('reg-weight').value = userProfile.weight;
+            document.getElementById('reg-age').value = userProfile.age;
+            document.getElementById('reg-gender').value = userProfile.gender || '';
+            document.getElementById('reg-teams').value = userProfile.teams ? userProfile.teams.join(', ') : '';
+            
+            showRegistrationScreen();
+        }
+
+        function logout() {
+            if (confirm('Вы уверены, что хотите выйти?')) {
+                localStorage.removeItem('nebula-user-profile');
+                userProfile = null;
+                showRegistrationScreen();
+            }
+        }
+
+        // Registration form submission
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const profile = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                height: parseInt(formData.get('height')),
+                weight: parseInt(formData.get('weight')),
+                age: parseInt(formData.get('age')),
+                gender: formData.get('gender'),
+                teams: formData.get('teams') ? formData.get('teams').split(',').map(t => t.trim()).filter(t => t) : [],
+                favoriteRecipes: userProfile ? userProfile.favoriteRecipes || [] : []
+            };
+
+            userProfile = profile;
+            localStorage.setItem('nebula-user-profile', JSON.stringify(profile));
+            
+            hideRegistrationScreen();
+            updateProfileDisplay();
+            
+            // Show success message
+            alert('Профиль успешно создан/обновлен!');
+        });
+
+        // Add recipe to favorites (called from nutrition section)
+        function addToFavorites(recipeName) {
+            if (!userProfile) return;
+            
+            if (!userProfile.favoriteRecipes) {
+                userProfile.favoriteRecipes = [];
+            }
+            
+            if (!userProfile.favoriteRecipes.includes(recipeName)) {
+                userProfile.favoriteRecipes.push(recipeName);
+                localStorage.setItem('nebula-user-profile', JSON.stringify(userProfile));
+                updateProfileDisplay();
+            }
+        }
+
+        function addToMealPlan(recipeName) {
+            alert(`Рецепт "${recipeName}" добавлен в ваш рацион!`);
+            addToFavorites(recipeName);
+        }
+
+        // Food Delivery Functions
+        function openDeliveryModal(type) {
+            const modal = document.getElementById('modal-bg');
+            const content = document.getElementById('modal-content');
+            let html = '';
+            
+            if (type === 'restaurants') {
+                html = `
+                    <h2>🍽️ Рестораны</h2>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                            <strong>🍕 Пицца "Домино"</strong><br>
+                            <span style="color: #94a3b8;">Время доставки: 30-45 мин</span><br>
+                            <span style="color: #10b981; font-weight: bold;">от 450₽</span>
+                        </div>
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                            <strong>🍜 Суши "Якитория"</strong><br>
+                            <span style="color: #94a3b8;">Время доставки: 25-35 мин</span><br>
+                            <span style="color: #10b981; font-weight: bold;">от 600₽</span>
+                        </div>
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                            <strong>🍔 Бургер "Burger King"</strong><br>
+                            <span style="color: #94a3b8;">Время доставки: 20-30 мин</span><br>
+                            <span style="color: #10b981; font-weight: bold;">от 300₽</span>
+                        </div>
+                    </div>
+                    <button onclick="closeModal()" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Выбрать ресторан</button>
+                `;
+            } else if (type === 'grocery') {
+                html = `
+                    <h2>🛒 Продуктовые магазины</h2>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                            <strong>🏪 "Пятерочка"</strong><br>
+                            <span style="color: #94a3b8;">Время доставки: 1-2 часа</span><br>
+                            <span style="color: #10b981; font-weight: bold;">от 200₽</span>
+                        </div>
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                            <strong>🏬 "Перекресток"</strong><br>
+                            <span style="color: #94a3b8;">Время доставки: 1-3 часа</span><br>
+                            <span style="color: #10b981; font-weight: bold;">от 300₽</span>
+                        </div>
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                            <strong>🛒 "Яндекс.Лавка"</strong><br>
+                            <span style="color: #94a3b8;">Время доставки: 15-30 мин</span><br>
+                            <span style="color: #10b981; font-weight: bold;">от 150₽</span>
+                        </div>
+                    </div>
+                    <button onclick="closeModal()" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Выбрать магазин</button>
+                `;
+            }
+            
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+
+        function orderRecommended(foodType) {
+            alert(`Заказ "${foodType}" оформлен! Время доставки: 25-40 минут.`);
+        }
+
+        // Enhanced Taxi Functions
+        function openTaxiModal(taxiType) {
+            const modal = document.getElementById('modal-bg');
+            const content = document.getElementById('modal-content');
+            let html = '';
+            
+            const taxiInfo = {
+                economy: { name: 'Эконом', price: '150₽', time: '5-10 мин', features: 'Базовый комфорт' },
+                comfort: { name: 'Комфорт', price: '250₽', time: '3-8 мин', features: 'Кондиционер, Wi-Fi' },
+                business: { name: 'Бизнес', price: '400₽', time: '2-5 мин', features: 'Премиум авто, водитель в костюме' }
+            };
+            
+            const info = taxiInfo[taxiType];
+            
+            html = `
+                <h2>🚕 ${info.name} такси</h2>
+                <div style="text-align: left; margin: 20px 0;">
+                    <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                        <strong>💰 Стоимость:</strong> ${info.price}<br>
+                        <strong>⏱️ Время подачи:</strong> ${info.time}<br>
+                        <strong>✨ Особенности:</strong> ${info.features}
+                    </div>
+                    <div style="margin-bottom: 16px; padding: 12px; background: rgba(30, 41, 59, 0.8); border-radius: 8px;">
+                        <strong>📍 Откуда:</strong> <input type="text" placeholder="Ваш адрес" style="width: 100%; padding: 8px; margin: 8px 0; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;"><br>
+                        <strong>🎯 Куда:</strong> <input type="text" placeholder="Адрес назначения" style="width: 100%; padding: 8px; margin: 8px 0; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                    </div>
+                </div>
+                <button onclick="confirmTaxiOrder('${taxiType}')" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Заказать такси</button>
+                <button onclick="closeModal()" style="background: #6b7280; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Отмена</button>
+            `;
+            
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+
+        function confirmTaxiOrder(taxiType) {
+            alert(`Такси "${taxiType}" заказано! Водитель будет через 3-8 минут.`);
+            closeModal();
+        }
+
+        // Transport Booking Functions
+        function openTransportModal(transportType) {
+            const modal = document.getElementById('modal-bg');
+            const content = document.getElementById('modal-content');
+            let html = '';
+            
+            if (transportType === 'airplane') {
+                html = `
+                    <h2>✈️ Бронирование авиабилетов</h2>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <div style="margin-bottom: 16px;">
+                            <strong>🏢 Авиакомпании:</strong>
+                            <div style="margin: 10px 0;">
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Аэрофлот</strong> - от 8,500₽
+                                </div>
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>S7 Airlines</strong> - от 7,200₽
+                                </div>
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Победа</strong> - от 5,800₽
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <strong>📍 Маршрут:</strong><br>
+                            <input type="text" placeholder="Откуда" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                            <input type="text" placeholder="Куда" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <strong>📅 Даты:</strong><br>
+                            <input type="date" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                            <input type="date" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                        </div>
+                    </div>
+                    <button onclick="confirmTransportBooking('airplane')" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Найти билеты</button>
+                    <button onclick="closeModal()" style="background: #6b7280; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Отмена</button>
+                `;
+            } else if (transportType === 'train') {
+                html = `
+                    <h2>🚄 Бронирование ж/д билетов</h2>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <div style="margin-bottom: 16px;">
+                            <strong>🚂 Типы поездов:</strong>
+                            <div style="margin: 10px 0;">
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Сапсан</strong> - от 2,300₽ (скоростной)
+                                </div>
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Ласточка</strong> - от 1,800₽ (электричка)
+                                </div>
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Обычный поезд</strong> - от 1,200₽
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <strong>📍 Маршрут:</strong><br>
+                            <input type="text" placeholder="Откуда" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                            <input type="text" placeholder="Куда" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                        </div>
+                    </div>
+                    <button onclick="confirmTransportBooking('train')" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Найти билеты</button>
+                    <button onclick="closeModal()" style="background: #6b7280; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Отмена</button>
+                `;
+            } else if (transportType === 'bus') {
+                html = `
+                    <h2>🚌 Бронирование автобусных билетов</h2>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <div style="margin-bottom: 16px;">
+                            <strong>🚌 Перевозчики:</strong>
+                            <div style="margin: 10px 0;">
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Глобус</strong> - от 1,800₽
+                                </div>
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Автолайн</strong> - от 1,600₽
+                                </div>
+                                <div style="padding: 8px; background: rgba(139, 92, 246, 0.1); border-radius: 4px; margin: 4px 0;">
+                                    <strong>Экспресс</strong> - от 1,400₽
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <strong>📍 Маршрут:</strong><br>
+                            <input type="text" placeholder="Откуда" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                            <input type="text" placeholder="Куда" style="width: 48%; padding: 8px; margin: 4px 1%; border-radius: 4px; border: 1px solid #374151; background: rgba(15, 23, 42, 0.8); color: white;">
+                        </div>
+                    </div>
+                    <button onclick="confirmTransportBooking('bus')" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Найти билеты</button>
+                    <button onclick="closeModal()" style="background: #6b7280; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Отмена</button>
+                `;
+            }
+            
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+
+        function confirmTransportBooking(transportType) {
+            const transportNames = {
+                airplane: 'авиабилеты',
+                train: 'ж/д билеты', 
+                bus: 'автобусные билеты'
+            };
+            
+            alert(`Поиск ${transportNames[transportType]} запущен! Результаты будут показаны в новом окне.`);
+            closeModal();
+        }
+
+        // Subscription Functions
+        function selectSubscription(planType) {
+            const planInfo = {
+                basic: { name: 'Базовый', price: '990₽/мес' },
+                pro: { name: 'Про', price: '2990₽/мес' },
+                premium: { name: 'Премиум', price: '3990₽/мес' },
+                elite: { name: 'Элит', price: '7990₽/мес' },
+                vip: { name: 'VIP', price: '16990₽/мес' }
+            };
+            
+            const plan = planInfo[planType];
+            const modal = document.getElementById('modal-bg');
+            const content = document.getElementById('modal-content');
+            
+            const html = `
+                <h2>💎 ${plan.name} - ${plan.price}</h2>
+                <div style="text-align: left; margin: 20px 0;">
+                    <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                        <strong>🎯 Выбранный план:</strong> ${plan.name}<br>
+                        <strong>💰 Стоимость:</strong> ${plan.price}<br>
+                        <strong>📅 Период:</strong> Ежемесячная подписка
+                    </div>
+                    <div style="margin-bottom: 16px; padding: 12px; background: rgba(30, 41, 59, 0.8); border-radius: 8px;">
+                        <strong>💳 Способ оплаты:</strong><br>
+                        <input type="radio" name="payment" value="card" checked style="margin: 8px 4px 8px 0;"> 💳 Банковская карта<br>
+                        <input type="radio" name="payment" value="apple" style="margin: 8px 4px 8px 0;"> 🍎 Apple Pay<br>
+                        <input type="radio" name="payment" value="google" style="margin: 8px 4px 8px 0;"> 📱 Google Pay
+                    </div>
+                </div>
+                <button onclick="confirmSubscription('${planType}')" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Оформить подписку</button>
+                <button onclick="closeModal()" style="background: #6b7280; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Отмена</button>
+            `;
+            
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+
+        function confirmSubscription(planType) {
+            const planNames = {
+                basic: 'Базовый',
+                pro: 'Про',
+                premium: 'Премиум',
+                elite: 'Элит',
+                vip: 'VIP'
+            };
+            
+            alert(`Подписка "${planNames[planType]}" успешно оформлена! Добро пожаловать в премиум-сообщество Nebula! 🎉`);
+            closeModal();
+        }
+
+        // Device Connection Functions
+        function connectDevice(deviceType) {
+            const deviceNames = {
+                'apple-watch': 'Apple Watch',
+                'fitbit': 'Fitbit',
+                'garmin': 'Garmin'
+            };
+            
+            const modal = document.getElementById('modal-bg');
+            const content = document.getElementById('modal-content');
+            
+            const html = `
+                <h2>⌚ Подключение ${deviceNames[deviceType]}</h2>
+                <div style="text-align: left; margin: 20px 0;">
+                    <div style="margin-bottom: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                        <strong>📱 Устройство:</strong> ${deviceNames[deviceType]}<br>
+                        <strong>🔗 Статус:</strong> Поиск устройства...
+                    </div>
+                    <div style="margin-bottom: 16px; padding: 12px; background: rgba(30, 41, 59, 0.8); border-radius: 8px;">
+                        <strong>📋 Инструкции:</strong><br>
+                        • Убедитесь, что устройство включено<br>
+                        • Включите Bluetooth на телефоне<br>
+                        • Разрешите доступ к данным о здоровье<br>
+                        • Подтвердите подключение на устройстве
+                    </div>
+                </div>
+                <button onclick="confirmDeviceConnection('${deviceType}')" style="background: #8b5cf6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Подключить</button>
+                <button onclick="closeModal()" style="background: #6b7280; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Отмена</button>
+            `;
+            
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+
+        function confirmDeviceConnection(deviceType) {
+            const deviceNames = {
+                'apple-watch': 'Apple Watch',
+                'fitbit': 'Fitbit',
+                'garmin': 'Garmin'
+            };
+            
+            // Update device status
+            const statusElement = document.getElementById(deviceType + '-status');
+            statusElement.textContent = 'Подключено';
+            statusElement.classList.add('connected');
+            
+            alert(`${deviceNames[deviceType]} успешно подключен! Теперь вы можете отслеживать свои тренировки и показатели здоровья.`);
+            closeModal();
+        }
+    </script>
+</body>
+</html>

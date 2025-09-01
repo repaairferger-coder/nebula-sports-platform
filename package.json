@@ -1,0 +1,81 @@
+{
+  "name": "nebula-sports-platform",
+  "version": "1.0.0",
+  "description": "🌌 Nebula - Спортивная платформа будущего с live-стримами, тренировками, питанием и путешествиями",
+  "main": "nebula-simple2/index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Build process will be implemented in future versions'",
+    "test": "echo 'Tests will be implemented in future versions'",
+    "lint": "echo 'Linting will be implemented in future versions'",
+    "deploy": "echo 'Deploy to Netlify or other hosting'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/nebula.git"
+  },
+  "keywords": [
+    "sports",
+    "fitness",
+    "nutrition",
+    "travel",
+    "ai",
+    "live-streaming",
+    "mobile-app",
+    "web-app",
+    "react-native",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": {
+    "name": "Nebula Sports Team",
+    "email": "contact@nebula-sports.com",
+    "url": "https://nebula-sports.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/nebula/issues"
+  },
+  "homepage": "https://nebula-sports.com",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^12.0.0"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-native": "^0.70.0",
+    "expo": "^46.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{html,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/yourusername"
+  }
+}
