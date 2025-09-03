@@ -1864,6 +1864,501 @@
             50% { opacity: 0.7; }
         }
 
+        /* Admin Panel Styles */
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .admin-level {
+            margin-top: 10px;
+            color: #8b5cf6;
+            font-weight: 600;
+        }
+
+        .admin-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .admin-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        /* Code Editor Styles */
+        .code-editor-container {
+            display: grid;
+            gap: 16px;
+        }
+
+        .editor-toolbar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .editor-toolbar select {
+            padding: 8px 12px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 8px;
+            color: #f8fafc;
+            font-size: 0.9rem;
+        }
+
+        .editor-btn {
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .editor-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .code-editor {
+            position: relative;
+        }
+
+        #code-input {
+            width: 100%;
+            height: 300px;
+            background: #0f172a;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            color: #f8fafc;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+        }
+
+        #code-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+        }
+
+        .code-output {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .output-header {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #8b5cf6;
+        }
+
+        #code-result {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 12px;
+            min-height: 100px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #10b981;
+            white-space: pre-wrap;
+        }
+
+        /* AI Assistant Styles */
+        .ai-assistant-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .ai-chat {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .ai-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 16px;
+        }
+
+        .ai-message {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ai-avatar {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .ai-text {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            line-height: 1.5;
+        }
+
+        .ai-input-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ai-input-container input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 8px;
+            color: #f8fafc;
+        }
+
+        .ai-input-container input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .ai-input-container button {
+            padding: 12px 16px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .ai-suggestions {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .suggestion-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #8b5cf6;
+        }
+
+        .suggestion-btn {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 8px;
+            color: #f8fafc;
+            cursor: pointer;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .suggestion-btn:hover {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        /* System Controls Styles */
+        .system-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .control-group {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .control-group h4 {
+            margin-bottom: 12px;
+            color: #8b5cf6;
+            font-size: 1.1rem;
+        }
+
+        .control-btn {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 8px;
+            color: #f8fafc;
+            cursor: pointer;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .control-btn:hover {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Achievements Styles */
+        .achievements-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .achievements-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .achievements-categories {
+            margin-bottom: 40px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 10px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            color: #8b5cf6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-tab:hover, .category-tab.active {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .achievement-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        .achievement-card.earned {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .achievement-card.earned::before {
+            content: '✅';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .achievement-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .achievement-description {
+            color: #94a3b8;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .achievement-progress {
+            background: rgba(148, 163, 184, 0.2);
+            border-radius: 4px;
+            height: 6px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .achievement-reward {
+            color: #10b981;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Sports Cards Styles */
+        .sports-cards-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .cards-info {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+        }
+
+        .monthly-card {
+            text-align: center;
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #8b5cf6;
+        }
+
+        .card-preview {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .card-image {
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+
+        .card-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-description {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .cards-collection {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .collection-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #8b5cf6;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+        }
+
+        .sports-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .sports-card:hover {
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+        }
+
+        .sports-card.rare {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .sports-card.epic {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .sports-card.legendary {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .card-emoji {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .card-athlete-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #f8fafc;
+        }
+
+        .card-rarity {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
         /* Account Profile Styles */
         .account-profile {
             max-width: 800px;
@@ -2473,6 +2968,8 @@
             <div class="nav-tab" onclick="showTab('travel')">✈️ Travel</div>
             <div class="nav-tab" onclick="showTab('community')">👥 Community</div>
             <div class="nav-tab" onclick="showTab('security')">🔒 Security</div>
+            <div class="nav-tab" onclick="showTab('admin')" id="admin-tab" style="display:none;">⚙️ Admin Panel</div>
+            <div class="nav-tab" onclick="showTab('achievements')">🏆 Achievements</div>
             <div class="nav-tab" onclick="showTab('account')">👤 Аккаунт</div>
             <div class="nav-tab" onclick="showTab('dashboard')">🏠 Dashboard</div>
         </div>
@@ -2982,6 +3479,156 @@
                         <button class="emergency-btn" onclick="lockAllAccess()">🔒 Заблокировать все доступы</button>
                         <button class="emergency-btn" onclick="resetSecurityLevel()">🔄 Сбросить уровень безопасности</button>
                         <button class="emergency-btn" onclick="generateSecurityReport()">📊 Создать отчет безопасности</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="admin" class="content">
+            <div class="admin-header">
+                <div class="section-title">⚙️ Административная панель</div>
+                <div class="admin-level">Уровень доступа: <span id="admin-access-level">3</span></div>
+            </div>
+
+            <div class="admin-sections">
+                <!-- Code Editor Section -->
+                <div class="admin-section">
+                    <div class="section-title">💻 Редактор кода</div>
+                    <div class="code-editor-container">
+                        <div class="editor-toolbar">
+                            <select id="language-select" onchange="changeLanguage()">
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="sql">SQL</option>
+                            </select>
+                            <button class="editor-btn" onclick="saveCode()">💾 Сохранить</button>
+                            <button class="editor-btn" onclick="runCode()">▶️ Запустить</button>
+                            <button class="editor-btn" onclick="formatCode()">🎨 Форматировать</button>
+                            <button class="editor-btn" onclick="openAIAssistant()">🤖 ИИ Помощник</button>
+                        </div>
+                        <div class="code-editor">
+                            <textarea id="code-input" placeholder="Введите ваш код здесь...">// Добро пожаловать в редактор кода Nebula!
+function welcome() {
+    console.log("Привет, разработчик!");
+    return "Код готов к выполнению";
+}
+
+welcome();</textarea>
+                        </div>
+                        <div class="code-output">
+                            <div class="output-header">Вывод:</div>
+                            <div id="code-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistant Section -->
+                <div class="admin-section">
+                    <div class="section-title">🤖 ИИ Помощник для кода</div>
+                    <div class="ai-assistant-container">
+                        <div class="ai-chat">
+                            <div class="ai-messages" id="ai-messages">
+                                <div class="ai-message">
+                                    <div class="ai-avatar">🤖</div>
+                                    <div class="ai-text">Привет! Я ваш ИИ-помощник по программированию. Я могу помочь с оптимизацией кода, исправлением ошибок, рефакторингом и объяснением сложных концепций. Что бы вы хотели улучшить?</div>
+                                </div>
+                            </div>
+                            <div class="ai-input-container">
+                                <input type="text" id="ai-input" placeholder="Задайте вопрос о коде..." onkeypress="handleAIInput(event)">
+                                <button onclick="sendAIMessage()">📤</button>
+                            </div>
+                        </div>
+                        <div class="ai-suggestions">
+                            <div class="suggestion-title">Быстрые действия:</div>
+                            <button class="suggestion-btn" onclick="aiOptimizeCode()">⚡ Оптимизировать код</button>
+                            <button class="suggestion-btn" onclick="aiFindBugs()">🐛 Найти ошибки</button>
+                            <button class="suggestion-btn" onclick="aiAddComments()">📝 Добавить комментарии</button>
+                            <button class="suggestion-btn" onclick="aiRefactorCode()">🔄 Рефакторинг</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Management -->
+                <div class="admin-section">
+                    <div class="section-title">🔧 Управление системой</div>
+                    <div class="system-controls">
+                        <div class="control-group">
+                            <h4>База данных</h4>
+                            <button class="control-btn" onclick="backupDatabase()">💾 Создать резервную копию</button>
+                            <button class="control-btn" onclick="optimizeDatabase()">⚡ Оптимизировать БД</button>
+                            <button class="control-btn" onclick="clearCache()">🗑️ Очистить кэш</button>
+                        </div>
+                        <div class="control-group">
+                            <h4>Пользователи</h4>
+                            <button class="control-btn" onclick="manageUsers()">👥 Управление пользователями</button>
+                            <button class="control-btn" onclick="viewAnalytics()">📊 Аналитика</button>
+                            <button class="control-btn" onclick="exportData()">📤 Экспорт данных</button>
+                        </div>
+                        <div class="control-group">
+                            <h4>Контент</h4>
+                            <button class="control-btn" onclick="moderateContent()">🛡️ Модерация контента</button>
+                            <button class="control-btn" onclick="managePosts()">📝 Управление постами</button>
+                            <button class="control-btn" onclick="systemLogs()">📋 Системные логи</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div id="achievements" class="content">
+            <div class="achievements-header">
+                <div class="section-title">🏆 Достижения</div>
+                <div class="achievements-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="achievements-earned">0</div>
+                        <div class="stat-label">Получено</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="achievements-total">100</div>
+                        <div class="stat-label">Всего</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="achievements-progress">0%</div>
+                        <div class="stat-label">Прогресс</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements-categories">
+                <div class="category-tabs">
+                    <div class="category-tab active" onclick="showAchievementCategory('all')">Все</div>
+                    <div class="category-tab" onclick="showAchievementCategory('fitness')">💪 Фитнес</div>
+                    <div class="category-tab" onclick="showAchievementCategory('social')">👥 Социальные</div>
+                    <div class="category-tab" onclick="showAchievementCategory('tech')">💻 Технические</div>
+                    <div class="category-tab" onclick="showAchievementCategory('special')">⭐ Особые</div>
+                </div>
+
+                <div class="achievements-grid" id="achievements-grid">
+                    <!-- Achievements will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Sports Cards Section -->
+            <div class="sports-cards-section">
+                <div class="section-title">🎴 Карточки спортсменов</div>
+                <div class="cards-info">
+                    <div class="monthly-card">
+                        <div class="card-title">Карта месяца</div>
+                        <div class="card-preview" id="monthly-card-preview">
+                            <div class="card-image">🏃‍♂️</div>
+                            <div class="card-name">Загрузка...</div>
+                        </div>
+                        <div class="card-description">Выполните все достижения месяца для получения карточки!</div>
+                    </div>
+                    <div class="cards-collection">
+                        <div class="collection-title">Ваша коллекция</div>
+                        <div class="cards-grid" id="cards-collection">
+                            <!-- Cards will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4536,6 +5183,461 @@
                 originalOpenModal(modalType);
             }
         }
+
+        // Admin Panel Functions
+        function updateAdminAccess() {
+            const adminTab = document.getElementById('admin-tab');
+            const adminLevel = document.getElementById('admin-access-level');
+            
+            if (currentSecurityLevel >= 3) {
+                adminTab.style.display = 'block';
+                adminLevel.textContent = currentSecurityLevel;
+            } else {
+                adminTab.style.display = 'none';
+            }
+        }
+
+        // Code Editor Functions
+        function changeLanguage() {
+            const select = document.getElementById('language-select');
+            const textarea = document.getElementById('code-input');
+            const language = select.value;
+            
+            const templates = {
+                javascript: `// JavaScript код
+function example() {
+    console.log("Привет, мир!");
+    return "Готово!";
+}
+
+example();`,
+                python: `# Python код
+def example():
+    print("Привет, мир!")
+    return "Готово!"
+
+example()`,
+                html: `<!-- HTML код -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пример</title>
+</head>
+<body>
+    <h1>Привет, мир!</h1>
+</body>
+</html>`,
+                css: `/* CSS код */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}`,
+                sql: `-- SQL код
+SELECT * FROM users 
+WHERE age > 18 
+ORDER BY name;
+
+INSERT INTO users (name, age) 
+VALUES ('Иван', 25);`
+            };
+            
+            textarea.value = templates[language] || '';
+        }
+
+        function saveCode() {
+            const code = document.getElementById('code-input').value;
+            localStorage.setItem('savedCode', code);
+            alert('Код сохранен!');
+        }
+
+        function runCode() {
+            const code = document.getElementById('code-input').value;
+            const result = document.getElementById('code-result');
+            
+            try {
+                // Простая симуляция выполнения кода
+                if (code.includes('console.log')) {
+                    result.textContent = 'Привет, мир!\nКод выполнен успешно!';
+                } else if (code.includes('print')) {
+                    result.textContent = 'Привет, мир!\nPython код выполнен!';
+                } else {
+                    result.textContent = 'Код выполнен успешно!\nРезультат: ' + (code.length > 0 ? 'ОК' : 'Пустой код');
+                }
+            } catch (error) {
+                result.textContent = 'Ошибка: ' + error.message;
+            }
+        }
+
+        function formatCode() {
+            const textarea = document.getElementById('code-input');
+            let code = textarea.value;
+            
+            // Простое форматирование
+            code = code.replace(/\{/g, ' {\n    ');
+            code = code.replace(/\}/g, '\n}');
+            code = code.replace(/;/g, ';\n');
+            
+            textarea.value = code;
+            alert('Код отформатирован!');
+        }
+
+        function openAIAssistant() {
+            showTab('admin');
+            // Фокус на AI чат
+            setTimeout(() => {
+                document.getElementById('ai-input').focus();
+            }, 100);
+        }
+
+        // AI Assistant Functions
+        function handleAIInput(event) {
+            if (event.key === 'Enter') {
+                sendAIMessage();
+            }
+        }
+
+        function sendAIMessage() {
+            const input = document.getElementById('ai-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                addAIMessage('user', message);
+                input.value = '';
+                
+                // Симуляция ответа ИИ
+                setTimeout(() => {
+                    const aiResponse = generateAIResponse(message);
+                    addAIMessage('ai', aiResponse);
+                }, 1000);
+            }
+        }
+
+        function addAIMessage(sender, text) {
+            const messagesContainer = document.getElementById('ai-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'ai-message';
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="ai-text" style="margin-left: auto; background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.3);">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="ai-avatar">🤖</div>
+                    <div class="ai-text">${text}</div>
+                `;
+            }
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateAIResponse(message) {
+            const responses = {
+                'оптимизировать': 'Я проанализировал ваш код и предлагаю следующие оптимизации:\n1. Используйте const/let вместо var\n2. Добавьте проверки на null/undefined\n3. Оптимизируйте циклы\n4. Используйте современный синтаксис ES6+',
+                'ошибка': 'Я нашел несколько потенциальных проблем в коде:\n1. Отсутствует обработка ошибок\n2. Возможные утечки памяти\n3. Неоптимальные алгоритмы\n4. Отсутствует валидация входных данных',
+                'комментарии': 'Добавлю подробные комментарии к вашему коду:\n\n// Функция для обработки пользовательских данных\n// @param {Object} userData - данные пользователя\n// @returns {boolean} - результат обработки',
+                'рефакторинг': 'Предлагаю следующий рефакторинг:\n1. Разбить большие функции на меньшие\n2. Вынести константы в отдельный файл\n3. Использовать паттерны проектирования\n4. Улучшить читаемость кода'
+            };
+            
+            for (let key in responses) {
+                if (message.toLowerCase().includes(key)) {
+                    return responses[key];
+                }
+            }
+            
+            return 'Я готов помочь с вашим кодом! Могу помочь с оптимизацией, поиском ошибок, добавлением комментариев или рефакторингом. Что именно вас интересует?';
+        }
+
+        function aiOptimizeCode() {
+            addAIMessage('user', 'Оптимизируй мой код');
+            setTimeout(() => {
+                addAIMessage('ai', generateAIResponse('оптимизировать'));
+            }, 1000);
+        }
+
+        function aiFindBugs() {
+            addAIMessage('user', 'Найди ошибки в коде');
+            setTimeout(() => {
+                addAIMessage('ai', generateAIResponse('ошибка'));
+            }, 1000);
+        }
+
+        function aiAddComments() {
+            addAIMessage('user', 'Добавь комментарии');
+            setTimeout(() => {
+                addAIMessage('ai', generateAIResponse('комментарии'));
+            }, 1000);
+        }
+
+        function aiRefactorCode() {
+            addAIMessage('user', 'Сделай рефакторинг');
+            setTimeout(() => {
+                addAIMessage('ai', generateAIResponse('рефакторинг'));
+            }, 1000);
+        }
+
+        // System Management Functions
+        function backupDatabase() {
+            alert('Создание резервной копии базы данных...\nФайл: backup_' + new Date().toISOString().split('T')[0] + '.sql');
+        }
+
+        function optimizeDatabase() {
+            alert('Оптимизация базы данных завершена!\nОсвобождено: 150MB\nУскорение: 25%');
+        }
+
+        function clearCache() {
+            alert('Кэш очищен!\nОсвобождено: 75MB');
+        }
+
+        function manageUsers() {
+            alert('Открытие панели управления пользователями...');
+        }
+
+        function viewAnalytics() {
+            alert('Загрузка аналитики...\nАктивных пользователей: 1,247\nНовых регистраций: 89');
+        }
+
+        function exportData() {
+            alert('Экспорт данных начат...\nФайл будет готов через несколько минут.');
+        }
+
+        function moderateContent() {
+            alert('Открытие панели модерации контента...');
+        }
+
+        function managePosts() {
+            alert('Управление постами...\nВсего постов: 2,456\nНа модерации: 23');
+        }
+
+        function systemLogs() {
+            alert('Просмотр системных логов...\nПоследние 100 записей загружены.');
+        }
+
+        // Achievements System
+        let achievements = [];
+        let earnedAchievements = new Set();
+        let userCards = [];
+
+        function initializeAchievements() {
+            achievements = [
+                // Фитнес достижения
+                { id: 1, name: "Первый шаг", description: "Завершите первую тренировку", icon: "👟", category: "fitness", reward: "100 очков" },
+                { id: 2, name: "Марафонец", description: "Пробегите 42.2 км за месяц", icon: "🏃‍♂️", category: "fitness", reward: "500 очков" },
+                { id: 3, name: "Силач", description: "Поднимите 100 кг в жиме лежа", icon: "💪", category: "fitness", reward: "300 очков" },
+                { id: 4, name: "Йог", description: "Занимайтесь йогой 30 дней подряд", icon: "🧘‍♀️", category: "fitness", reward: "250 очков" },
+                { id: 5, name: "Пловец", description: "Проплывите 1 км без остановки", icon: "🏊‍♂️", category: "fitness", reward: "200 очков" },
+                { id: 6, name: "Велосипедист", description: "Проедьте 100 км на велосипеде", icon: "🚴‍♂️", category: "fitness", reward: "400 очков" },
+                { id: 7, name: "Альпинист", description: "Покорите 10 вершин", icon: "⛰️", category: "fitness", reward: "600 очков" },
+                { id: 8, name: "Танцор", description: "Танцуйте 1 час каждый день неделю", icon: "💃", category: "fitness", reward: "150 очков" },
+                { id: 9, name: "Боксер", description: "Проведите 50 раундов в боксе", icon: "🥊", category: "fitness", reward: "350 очков" },
+                { id: 10, name: "Гимнаст", description: "Выполните сальто", icon: "🤸‍♂️", category: "fitness", reward: "450 очков" },
+
+                // Социальные достижения
+                { id: 11, name: "Дружелюбный", description: "Добавьте 10 друзей", icon: "👥", category: "social", reward: "100 очков" },
+                { id: 12, name: "Лидер", description: "Создайте группу с 50+ участниками", icon: "👑", category: "social", reward: "400 очков" },
+                { id: 13, name: "Ментор", description: "Помогите 5 новичкам", icon: "🎓", category: "social", reward: "300 очков" },
+                { id: 14, name: "Оратор", description: "Проведите 10 голосовых чатов", icon: "🎤", category: "social", reward: "250 очков" },
+                { id: 15, name: "Блогер", description: "Напишите 50 постов", icon: "📝", category: "social", reward: "200 очков" },
+                { id: 16, name: "Фотограф", description: "Поделитесь 100 фотографиями", icon: "📸", category: "social", reward: "150 очков" },
+                { id: 17, name: "Комментатор", description: "Оставьте 500 комментариев", icon: "💬", category: "social", reward: "100 очков" },
+                { id: 18, name: "Вдохновитель", description: "Получите 1000 лайков", icon: "❤️", category: "social", reward: "350 очков" },
+                { id: 19, name: "Организатор", description: "Организуйте 5 мероприятий", icon: "📅", category: "social", reward: "400 очков" },
+                { id: 20, name: "Амбассадор", description: "Пригласите 20 друзей", icon: "🌟", category: "social", reward: "500 очков" },
+
+                // Технические достижения
+                { id: 21, name: "Программист", description: "Напишите 1000 строк кода", icon: "💻", category: "tech", reward: "300 очков" },
+                { id: 22, name: "Хакер", description: "Найдите 10 багов в коде", icon: "🔍", category: "tech", reward: "400 очков" },
+                { id: 23, name: "Архитектор", description: "Спроектируйте систему", icon: "🏗️", category: "tech", reward: "500 очков" },
+                { id: 24, name: "Тестировщик", description: "Напишите 100 тестов", icon: "🧪", category: "tech", reward: "250 очков" },
+                { id: 25, name: "Документалист", description: "Создайте документацию", icon: "📚", category: "tech", reward: "200 очков" },
+                { id: 26, name: "Оптимизатор", description: "Улучшите производительность", icon: "⚡", category: "tech", reward: "350 очков" },
+                { id: 27, name: "Безопасник", description: "Найдите уязвимости", icon: "🔒", category: "tech", reward: "450 очков" },
+                { id: 28, name: "DevOps", description: "Настройте CI/CD", icon: "🚀", category: "tech", reward: "400 очков" },
+                { id: 29, name: "Аналитик", description: "Проанализируйте данные", icon: "📊", category: "tech", reward: "300 очков" },
+                { id: 30, name: "Инноватор", description: "Создайте новый алгоритм", icon: "💡", category: "tech", reward: "600 очков" },
+
+                // Особые достижения
+                { id: 31, name: "Легенда", description: "Получите все достижения", icon: "👑", category: "special", reward: "1000 очков" },
+                { id: 32, name: "Ночная сова", description: "Активны в 3 утра", icon: "🦉", category: "special", reward: "100 очков" },
+                { id: 33, name: "Ранняя пташка", description: "Активны в 6 утра", icon: "🐦", category: "special", reward: "100 очков" },
+                { id: 34, name: "Стрессоустойчивый", description: "Используйте приложение в стрессовых ситуациях", icon: "🧘", category: "special", reward: "200 очков" },
+                { id: 35, name: "Путешественник", description: "Используйте приложение в 10 странах", icon: "✈️", category: "special", reward: "500 очков" },
+                { id: 36, name: "Полиглот", description: "Используйте приложение на 5 языках", icon: "🗣️", category: "special", reward: "300 очков" },
+                { id: 37, name: "Перфекционист", description: "Достигните 100% в 10 достижениях", icon: "💎", category: "special", reward: "400 очков" },
+                { id: 38, name: "Экспериментатор", description: "Попробуйте все функции", icon: "🧪", category: "special", reward: "250 очков" },
+                { id: 39, name: "Мудрец", description: "Используйте приложение 365 дней", icon: "🧙‍♂️", category: "special", reward: "600 очков" },
+                { id: 40, name: "Пионер", description: "Будьте в числе первых пользователей", icon: "🚩", category: "special", reward: "500 очков" }
+            ];
+
+            // Добавляем еще 60 достижений для разнообразия
+            for (let i = 41; i <= 100; i++) {
+                const categories = ['fitness', 'social', 'tech', 'special'];
+                const category = categories[Math.floor(Math.random() * categories.length)];
+                const icons = ['🏆', '⭐', '🎯', '🔥', '💫', '🌟', '🎖️', '🏅', '🥇', '🥈', '🥉'];
+                const icon = icons[Math.floor(Math.random() * icons.length)];
+                
+                achievements.push({
+                    id: i,
+                    name: `Достижение ${i}`,
+                    description: `Описание достижения номер ${i}`,
+                    icon: icon,
+                    category: category,
+                    reward: `${Math.floor(Math.random() * 500) + 100} очков`
+                });
+            }
+
+            // Симулируем получение некоторых достижений
+            earnedAchievements.add(1);
+            earnedAchievements.add(11);
+            earnedAchievements.add(21);
+            earnedAchievements.add(32);
+
+            updateAchievementsDisplay();
+        }
+
+        function showAchievementCategory(category) {
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const grid = document.getElementById('achievements-grid');
+            grid.innerHTML = '';
+
+            const filteredAchievements = category === 'all' ? achievements : achievements.filter(a => a.category === category);
+            
+            filteredAchievements.forEach(achievement => {
+                const card = createAchievementCard(achievement);
+                grid.appendChild(card);
+            });
+        }
+
+        function createAchievementCard(achievement) {
+            const card = document.createElement('div');
+            card.className = `achievement-card ${earnedAchievements.has(achievement.id) ? 'earned' : ''}`;
+            
+            const progress = earnedAchievements.has(achievement.id) ? 100 : Math.floor(Math.random() * 100);
+            
+            card.innerHTML = `
+                <div class="achievement-icon">${achievement.icon}</div>
+                <div class="achievement-name">${achievement.name}</div>
+                <div class="achievement-description">${achievement.description}</div>
+                <div class="achievement-progress">
+                    <div class="achievement-progress-fill" style="width: ${progress}%"></div>
+                </div>
+                <div class="achievement-reward">${achievement.reward}</div>
+            `;
+            
+            return card;
+        }
+
+        function updateAchievementsDisplay() {
+            const earned = document.getElementById('achievements-earned');
+            const total = document.getElementById('achievements-total');
+            const progress = document.getElementById('achievements-progress');
+            
+            earned.textContent = earnedAchievements.size;
+            total.textContent = achievements.length;
+            progress.textContent = Math.round((earnedAchievements.size / achievements.length) * 100) + '%';
+            
+            // Показываем все достижения по умолчанию
+            showAchievementCategory('all');
+        }
+
+        // Sports Cards System
+        function initializeSportsCards() {
+            const monthlyCard = document.getElementById('monthly-card-preview');
+            const cardName = document.getElementById('monthly-card-preview').querySelector('.card-name');
+            
+            // Генерируем случайную карту месяца
+            const athletes = [
+                { name: "Лионель Месси", emoji: "⚽", rarity: "legendary" },
+                { name: "Криштиану Роналду", emoji: "⚽", rarity: "legendary" },
+                { name: "Серена Уильямс", emoji: "🎾", rarity: "epic" },
+                { name: "Майкл Фелпс", emoji: "🏊‍♂️", rarity: "legendary" },
+                { name: "Усэйн Болт", emoji: "🏃‍♂️", rarity: "legendary" },
+                { name: "Роджер Федерер", emoji: "🎾", rarity: "epic" },
+                { name: "Леброн Джеймс", emoji: "🏀", rarity: "epic" },
+                { name: "Тайгер Вудс", emoji: "⛳", rarity: "epic" },
+                { name: "Александр Овечкин", emoji: "🏒", rarity: "rare" },
+                { name: "Мария Шарапова", emoji: "🎾", rarity: "rare" }
+            ];
+            
+            const randomAthlete = athletes[Math.floor(Math.random() * athletes.length)];
+            monthlyCard.querySelector('.card-image').textContent = randomAthlete.emoji;
+            cardName.textContent = randomAthlete.name;
+            
+            // Инициализируем коллекцию карт
+            initializeUserCards();
+        }
+
+        function initializeUserCards() {
+            const collection = document.getElementById('cards-collection');
+            collection.innerHTML = '';
+            
+            // Симулируем несколько карт в коллекции
+            const userCards = [
+                { name: "Месси", emoji: "⚽", rarity: "legendary" },
+                { name: "Федерер", emoji: "🎾", rarity: "epic" },
+                { name: "Овечкин", emoji: "🏒", rarity: "rare" },
+                { name: "Болт", emoji: "🏃‍♂️", rarity: "legendary" }
+            ];
+            
+            userCards.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = `sports-card ${card.rarity}`;
+                cardElement.innerHTML = `
+                    <div class="card-emoji">${card.emoji}</div>
+                    <div class="card-athlete-name">${card.name}</div>
+                    <div class="card-rarity">${card.rarity}</div>
+                `;
+                collection.appendChild(cardElement);
+            });
+        }
+
+        // Update security level and admin access when level changes
+        function updateSecurityLevel(level) {
+            currentSecurityLevel = level;
+            document.getElementById('current-security-level').textContent = level;
+            document.getElementById('level-fill').style.width = (level * 20) + '%';
+            
+            // Update level status
+            for (let i = 1; i <= 5; i++) {
+                const statusElement = document.getElementById(`level-${i}-status`);
+                if (i <= level) {
+                    statusElement.textContent = 'Активен';
+                    statusElement.style.background = 'rgba(16, 185, 129, 0.1)';
+                    statusElement.style.color = '#10b981';
+                    statusElement.style.border = '1px solid #10b981';
+                } else {
+                    statusElement.textContent = 'Недоступен';
+                    statusElement.style.background = 'rgba(148, 163, 184, 0.1)';
+                    statusElement.style.color = '#94a3b8';
+                    statusElement.style.border = '1px solid #94a3b8';
+                }
+            }
+            
+            // Update admin access
+            updateAdminAccess();
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSecurityLevel(currentSecurityLevel);
+            initializeAchievements();
+            initializeSportsCards();
+            
+            // Add some initial logs
+            addSecurityLog('Система запущена', 'Система', '✅ Инициализация завершена');
+            addSecurityLog('Проверка безопасности', 'Система', '✅ Все системы в норме');
+        });
     </script>
 </body>
 </html>
