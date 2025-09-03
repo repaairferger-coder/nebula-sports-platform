@@ -2359,6 +2359,687 @@
             margin-top: 2px;
         }
 
+        /* Games Styles */
+        .games-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .user-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .games-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .games-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .minigames-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .minigame-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .minigame-card:hover {
+            transform: translateY(-4px);
+            border-color: #8b5cf6;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .game-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .game-reward {
+            color: #10b981;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .game-difficulty {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .tournaments-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .tournament-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .tournament-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .tournament-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .tournament-prize {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .tournament-info {
+            margin-bottom: 16px;
+        }
+
+        .tournament-participants,
+        .tournament-time {
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .tournament-progress {
+            margin-top: 12px;
+        }
+
+        .progress-bar {
+            background: rgba(148, 163, 184, 0.2);
+            border-radius: 4px;
+            height: 6px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .join-tournament-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .join-tournament-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .leaderboard {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 60px 1fr 80px 80px;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            font-weight: 600;
+            color: #8b5cf6;
+        }
+
+        .leaderboard-entries {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .leaderboard-entry {
+            display: grid;
+            grid-template-columns: 60px 1fr 80px 80px;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            align-items: center;
+        }
+
+        .leaderboard-entry:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .rank {
+            font-weight: 600;
+            color: #8b5cf6;
+        }
+
+        .player-name {
+            font-weight: 500;
+        }
+
+        .player-score {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .player-level {
+            color: #94a3b8;
+        }
+
+        /* Shop Styles */
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .user-balance {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .balance-item {
+            text-align: center;
+        }
+
+        .balance-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+
+        .balance-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .buy-coins-btn {
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-coins-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .shop-categories {
+            display: grid;
+            gap: 24px;
+        }
+
+        .shop-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .shop-item {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .shop-item:hover {
+            transform: translateY(-4px);
+            border-color: #8b5cf6;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        .item-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .item-description {
+            color: #94a3b8;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .item-price {
+            color: #f59e0b;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .buy-item-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-item-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .buy-item-btn:disabled {
+            background: #64748b;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Education Styles */
+        .education-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .education-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .education-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .education-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .course-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-4px);
+            border-color: #8b5cf6;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        .course-image {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .course-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .course-instructor {
+            color: #8b5cf6;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .course-duration,
+        .course-rating {
+            color: #94a3b8;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .course-price {
+            color: #10b981;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .certificate-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .certificate-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .certificate-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .certificate-date {
+            color: #94a3b8;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .view-certificate-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-certificate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Health Styles */
+        .health-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .health-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .status-item.healthy {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+
+        .health-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .health-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .metric-name {
+            color: #94a3b8;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .metric-status {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .metric-status.normal {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .devices-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .device-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .device-icon {
+            font-size: 2rem;
+        }
+
+        .device-info {
+            flex: 1;
+        }
+
+        .device-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .device-status {
+            font-size: 0.9rem;
+        }
+
+        .device-status.connected {
+            color: #10b981;
+        }
+
+        .device-status.disconnected {
+            color: #ef4444;
+        }
+
+        .device-btn {
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .device-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .medical-records {
+            display: grid;
+            gap: 12px;
+        }
+
+        .record-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .record-date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            min-width: 100px;
+        }
+
+        .record-type {
+            font-weight: 500;
+            flex: 1;
+            margin: 0 16px;
+        }
+
+        .record-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .record-status.normal {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .record-status.completed {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        /* Buy Coins Modal Styles */
+        .buy-coins-modal {
+            text-align: center;
+        }
+
+        .coins-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .package {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .package:hover {
+            transform: translateY(-4px);
+            border-color: #f59e0b;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+        }
+
+        .package-coins {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+
+        .package-price {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #10b981;
+        }
+
         /* Account Profile Styles */
         .account-profile {
             max-width: 800px;
@@ -2967,6 +3648,10 @@
             <div class="nav-tab" onclick="showTab('workouts')">💪 Workouts</div>
             <div class="nav-tab" onclick="showTab('travel')">✈️ Travel</div>
             <div class="nav-tab" onclick="showTab('community')">👥 Community</div>
+            <div class="nav-tab" onclick="showTab('games')">🎮 Games</div>
+            <div class="nav-tab" onclick="showTab('shop')">🛒 Shop</div>
+            <div class="nav-tab" onclick="showTab('education')">🎓 Education</div>
+            <div class="nav-tab" onclick="showTab('health')">🏥 Health</div>
             <div class="nav-tab" onclick="showTab('security')">🔒 Security</div>
             <div class="nav-tab" onclick="showTab('admin')" id="admin-tab" style="display:none;">⚙️ Admin Panel</div>
             <div class="nav-tab" onclick="showTab('achievements')">🏆 Achievements</div>
@@ -3327,6 +4012,322 @@
                         <div class="transport-price">от 1,800₽</div>
                     </div>
                     <div class="transport-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games -->
+        <div id="games" class="content">
+            <div class="games-header">
+                <div class="section-title">🎮 Игры и турниры</div>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="user-coins">1,250</div>
+                        <div class="stat-label">Nebula Coins</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="user-level">15</div>
+                        <div class="stat-label">Уровень</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="user-rank">#42</div>
+                        <div class="stat-label">Рейтинг</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="games-sections">
+                <!-- Mini Games -->
+                <div class="games-section">
+                    <div class="section-title">🎯 Мини-игры</div>
+                    <div class="minigames-grid">
+                        <div class="minigame-card" onclick="startMinigame('quiz')">
+                            <div class="game-icon">🧠</div>
+                            <div class="game-name">Спортивная викторина</div>
+                            <div class="game-reward">+50 Coins</div>
+                            <div class="game-difficulty">Средняя</div>
+                        </div>
+                        <div class="minigame-card" onclick="startMinigame('memory')">
+                            <div class="game-icon">🧩</div>
+                            <div class="game-name">Память спортсмена</div>
+                            <div class="game-reward">+30 Coins</div>
+                            <div class="game-difficulty">Легкая</div>
+                        </div>
+                        <div class="minigame-card" onclick="startMinigame('reaction')">
+                            <div class="game-icon">⚡</div>
+                            <div class="game-name">Реакция</div>
+                            <div class="game-reward">+40 Coins</div>
+                            <div class="game-difficulty">Сложная</div>
+                        </div>
+                        <div class="minigame-card" onclick="startMinigame('puzzle')">
+                            <div class="game-icon">🔢</div>
+                            <div class="game-name">Спортивная головоломка</div>
+                            <div class="game-reward">+60 Coins</div>
+                            <div class="game-difficulty">Сложная</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tournaments -->
+                <div class="games-section">
+                    <div class="section-title">🏆 Турниры</div>
+                    <div class="tournaments-list">
+                        <div class="tournament-card">
+                            <div class="tournament-header">
+                                <div class="tournament-name">Еженедельный фитнес-челлендж</div>
+                                <div class="tournament-prize">🏆 500 Coins</div>
+                            </div>
+                            <div class="tournament-info">
+                                <div class="tournament-participants">👥 247 участников</div>
+                                <div class="tournament-time">⏰ 3 дня осталось</div>
+                                <div class="tournament-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%"></div>
+                                    </div>
+                                    <div class="progress-text">65% завершено</div>
+                                </div>
+                            </div>
+                            <button class="join-tournament-btn" onclick="joinTournament('weekly-fitness')">Присоединиться</button>
+                        </div>
+                        <div class="tournament-card">
+                            <div class="tournament-header">
+                                <div class="tournament-name">Марафон знаний</div>
+                                <div class="tournament-prize">🥇 1000 Coins</div>
+                            </div>
+                            <div class="tournament-info">
+                                <div class="tournament-participants">👥 89 участников</div>
+                                <div class="tournament-time">⏰ 1 день осталось</div>
+                                <div class="tournament-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 90%"></div>
+                                    </div>
+                                    <div class="progress-text">90% завершено</div>
+                                </div>
+                            </div>
+                            <button class="join-tournament-btn" onclick="joinTournament('knowledge-marathon')">Присоединиться</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div class="games-section">
+                    <div class="section-title">📊 Рейтинг игроков</div>
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <div class="rank-header">Ранг</div>
+                            <div class="player-header">Игрок</div>
+                            <div class="score-header">Очки</div>
+                            <div class="level-header">Уровень</div>
+                        </div>
+                        <div class="leaderboard-entries" id="leaderboard-entries">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shop -->
+        <div id="shop" class="content">
+            <div class="shop-header">
+                <div class="section-title">🛒 Магазин Nebula</div>
+                <div class="user-balance">
+                    <div class="balance-item">
+                        <div class="balance-value" id="shop-coins">1,250</div>
+                        <div class="balance-label">Nebula Coins</div>
+                    </div>
+                    <button class="buy-coins-btn" onclick="openBuyCoinsModal()">💳 Купить Coins</button>
+                </div>
+            </div>
+
+            <div class="shop-categories">
+                <div class="category-tabs">
+                    <div class="category-tab active" onclick="showShopCategory('premium')">⭐ Premium</div>
+                    <div class="category-tab" onclick="showShopCategory('cosmetics')">🎨 Косметика</div>
+                    <div class="category-tab" onclick="showShopCategory('boosters')">⚡ Бустеры</div>
+                    <div class="category-tab" onclick="showShopCategory('subscriptions')">📅 Подписки</div>
+                </div>
+
+                <div class="shop-items" id="shop-items">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div id="education" class="content">
+            <div class="education-header">
+                <div class="section-title">🎓 Образовательные курсы</div>
+                <div class="education-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="courses-completed">3</div>
+                        <div class="stat-label">Завершено курсов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="certificates-earned">2</div>
+                        <div class="stat-label">Сертификатов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="study-hours">24</div>
+                        <div class="stat-label">Часов изучения</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-sections">
+                <!-- Featured Courses -->
+                <div class="education-section">
+                    <div class="section-title">⭐ Рекомендуемые курсы</div>
+                    <div class="courses-grid">
+                        <div class="course-card" onclick="openCourse('fitness-basics')">
+                            <div class="course-image">💪</div>
+                            <div class="course-info">
+                                <div class="course-title">Основы фитнеса</div>
+                                <div class="course-instructor">Тренер Максим</div>
+                                <div class="course-duration">⏱️ 2 часа</div>
+                                <div class="course-rating">⭐ 4.8 (127 отзывов)</div>
+                            </div>
+                            <div class="course-price">Бесплатно</div>
+                        </div>
+                        <div class="course-card" onclick="openCourse('nutrition-science')">
+                            <div class="course-image">🥗</div>
+                            <div class="course-info">
+                                <div class="course-title">Наука о питании</div>
+                                <div class="course-instructor">Диетолог Анна</div>
+                                <div class="course-duration">⏱️ 3 часа</div>
+                                <div class="course-rating">⭐ 4.9 (89 отзывов)</div>
+                            </div>
+                            <div class="course-price">500 Coins</div>
+                        </div>
+                        <div class="course-card" onclick="openCourse('mental-health')">
+                            <div class="course-image">🧘‍♀️</div>
+                            <div class="course-info">
+                                <div class="course-title">Ментальное здоровье</div>
+                                <div class="course-instructor">Психолог Елена</div>
+                                <div class="course-duration">⏱️ 1.5 часа</div>
+                                <div class="course-rating">⭐ 4.7 (156 отзывов)</div>
+                            </div>
+                            <div class="course-price">300 Coins</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="education-section">
+                    <div class="section-title">🏆 Ваши сертификаты</div>
+                    <div class="certificates-grid">
+                        <div class="certificate-card">
+                            <div class="certificate-icon">🏅</div>
+                            <div class="certificate-name">Основы фитнеса</div>
+                            <div class="certificate-date">Получен: 15.12.2024</div>
+                            <button class="view-certificate-btn" onclick="viewCertificate('fitness-basics')">Просмотреть</button>
+                        </div>
+                        <div class="certificate-card">
+                            <div class="certificate-icon">🥇</div>
+                            <div class="certificate-name">Продвинутое питание</div>
+                            <div class="certificate-date">Получен: 10.12.2024</div>
+                            <button class="view-certificate-btn" onclick="viewCertificate('advanced-nutrition')">Просмотреть</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health -->
+        <div id="health" class="content">
+            <div class="health-header">
+                <div class="section-title">🏥 Здоровье и медицина</div>
+                <div class="health-status">
+                    <div class="status-item healthy">
+                        <div class="status-icon">💚</div>
+                        <div class="status-text">Отличное здоровье</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="health-sections">
+                <!-- Health Metrics -->
+                <div class="health-section">
+                    <div class="section-title">📊 Показатели здоровья</div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">❤️</div>
+                            <div class="metric-name">Пульс</div>
+                            <div class="metric-value">72 уд/мин</div>
+                            <div class="metric-status normal">Норма</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">🩸</div>
+                            <div class="metric-name">Давление</div>
+                            <div class="metric-value">120/80</div>
+                            <div class="metric-status normal">Норма</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">⚖️</div>
+                            <div class="metric-name">Вес</div>
+                            <div class="metric-value">70 кг</div>
+                            <div class="metric-status normal">Идеально</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">🌡️</div>
+                            <div class="metric-name">Температура</div>
+                            <div class="metric-value">36.6°C</div>
+                            <div class="metric-status normal">Норма</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Device Integration -->
+                <div class="health-section">
+                    <div class="section-title">⌚ Подключенные устройства</div>
+                    <div class="devices-list">
+                        <div class="device-item">
+                            <div class="device-icon">⌚</div>
+                            <div class="device-info">
+                                <div class="device-name">Apple Watch Series 9</div>
+                                <div class="device-status connected">Подключено</div>
+                            </div>
+                            <button class="device-btn" onclick="syncDevice('apple-watch')">🔄 Синхронизировать</button>
+                        </div>
+                        <div class="device-item">
+                            <div class="device-icon">📱</div>
+                            <div class="device-info">
+                                <div class="device-name">iPhone Health</div>
+                                <div class="device-status connected">Подключено</div>
+                            </div>
+                            <button class="device-btn" onclick="syncDevice('iphone-health')">🔄 Синхронизировать</button>
+                        </div>
+                        <div class="device-item">
+                            <div class="device-icon">⚖️</div>
+                            <div class="device-info">
+                                <div class="device-name">Умные весы Xiaomi</div>
+                                <div class="device-status disconnected">Не подключено</div>
+                            </div>
+                            <button class="device-btn" onclick="connectDevice('smart-scale')">🔗 Подключить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Records -->
+                <div class="health-section">
+                    <div class="section-title">📋 Медицинская карта</div>
+                    <div class="medical-records">
+                        <div class="record-item">
+                            <div class="record-date">15.12.2024</div>
+                            <div class="record-type">Общий анализ крови</div>
+                            <div class="record-status normal">Все показатели в норме</div>
+                        </div>
+                        <div class="record-item">
+                            <div class="record-date">10.12.2024</div>
+                            <div class="record-type">Прививка от гриппа</div>
+                            <div class="record-status completed">Завершено</div>
+                        </div>
+                        <div class="record-item">
+                            <div class="record-date">05.12.2024</div>
+                            <div class="record-type">Стоматологический осмотр</div>
+                            <div class="record-status normal">Здоровые зубы</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -5628,15 +6629,332 @@ VALUES ('Иван', 25);`
             updateAdminAccess();
         }
 
+        // Games and Economy System
+        let userCoins = 1250;
+        let userLevel = 15;
+        let userRank = 42;
+
+        // Games Functions
+        function startMinigame(gameType) {
+            const games = {
+                'quiz': {
+                    name: 'Спортивная викторина',
+                    reward: 50,
+                    description: 'Ответьте на вопросы о спорте'
+                },
+                'memory': {
+                    name: 'Память спортсмена',
+                    reward: 30,
+                    description: 'Запомните последовательность карточек'
+                },
+                'reaction': {
+                    name: 'Реакция',
+                    reward: 40,
+                    description: 'Нажмите как можно быстрее'
+                },
+                'puzzle': {
+                    name: 'Спортивная головоломка',
+                    reward: 60,
+                    description: 'Решите логическую задачу'
+                }
+            };
+
+            const game = games[gameType];
+            if (confirm(`Запустить игру "${game.name}"?\n${game.description}\nНаграда: +${game.reward} Coins`)) {
+                // Симуляция игры
+                setTimeout(() => {
+                    const success = Math.random() > 0.3; // 70% шанс успеха
+                    if (success) {
+                        addCoins(game.reward);
+                        alert(`🎉 Поздравляем! Вы выиграли ${game.reward} Coins!`);
+                    } else {
+                        alert('😔 Попробуйте еще раз!');
+                    }
+                }, 2000);
+            }
+        }
+
+        function joinTournament(tournamentId) {
+            alert('Вы присоединились к турниру! Удачи! 🏆');
+        }
+
+        function initializeLeaderboard() {
+            const leaderboard = document.getElementById('leaderboard-entries');
+            const players = [
+                { rank: 1, name: 'Спортсмен_Про', score: 15420, level: 25 },
+                { rank: 2, name: 'Фитнес_Мастер', score: 14230, level: 23 },
+                { rank: 3, name: 'Здоровье_Гуру', score: 13890, level: 22 },
+                { rank: 4, name: 'Тренировочный_Бог', score: 12560, level: 20 },
+                { rank: 5, name: 'Вы', score: 11250, level: 15 },
+                { rank: 6, name: 'Атлет_2024', score: 10890, level: 18 },
+                { rank: 7, name: 'Марафонец_Макс', score: 10230, level: 17 },
+                { rank: 8, name: 'Йога_Королева', score: 9850, level: 16 }
+            ];
+
+            leaderboard.innerHTML = '';
+            players.forEach(player => {
+                const entry = document.createElement('div');
+                entry.className = 'leaderboard-entry';
+                entry.innerHTML = `
+                    <div class="rank">#${player.rank}</div>
+                    <div class="player-name">${player.name}</div>
+                    <div class="player-score">${player.score.toLocaleString()}</div>
+                    <div class="player-level">${player.level}</div>
+                `;
+                leaderboard.appendChild(entry);
+            });
+        }
+
+        // Shop Functions
+        function showShopCategory(category) {
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const itemsContainer = document.getElementById('shop-items');
+            itemsContainer.innerHTML = '';
+
+            const items = {
+                'premium': [
+                    { icon: '⭐', name: 'Premium аккаунт', description: 'Расширенные возможности на месяц', price: 500 },
+                    { icon: '🚀', name: 'Бустер опыта', description: 'x2 опыт на 7 дней', price: 200 },
+                    { icon: '💎', name: 'VIP статус', description: 'Эксклюзивные функции', price: 1000 }
+                ],
+                'cosmetics': [
+                    { icon: '🎨', name: 'Золотая тема', description: 'Эксклюзивная цветовая схема', price: 150 },
+                    { icon: '👑', name: 'Корона аватара', description: 'Стильный аксессуар', price: 100 },
+                    { icon: '🌈', name: 'Радужный эффект', description: 'Анимированные элементы', price: 200 }
+                ],
+                'boosters': [
+                    { icon: '⚡', name: 'Энергия', description: '+50 энергии для тренировок', price: 50 },
+                    { icon: '💪', name: 'Сила', description: 'Увеличивает эффективность тренировок', price: 75 },
+                    { icon: '🧠', name: 'Фокус', description: 'Улучшает концентрацию', price: 60 }
+                ],
+                'subscriptions': [
+                    { icon: '📅', name: 'Месячная подписка', description: 'Все Premium функции на месяц', price: 500 },
+                    { icon: '📅', name: 'Годовая подписка', description: 'Все Premium функции на год', price: 5000 },
+                    { icon: '👨‍👩‍👧‍👦', name: 'Семейная подписка', description: 'Для всей семьи', price: 800 }
+                ]
+            };
+
+            const categoryItems = items[category] || [];
+            categoryItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'shop-item';
+                itemElement.innerHTML = `
+                    <div class="item-icon">${item.icon}</div>
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-description">${item.description}</div>
+                    <div class="item-price">${item.price} Coins</div>
+                    <button class="buy-item-btn" onclick="buyItem('${item.name}', ${item.price})" ${userCoins < item.price ? 'disabled' : ''}>
+                        ${userCoins >= item.price ? 'Купить' : 'Недостаточно Coins'}
+                    </button>
+                `;
+                itemsContainer.appendChild(itemElement);
+            });
+        }
+
+        function buyItem(itemName, price) {
+            if (userCoins >= price) {
+                if (confirm(`Купить "${itemName}" за ${price} Coins?`)) {
+                    userCoins -= price;
+                    updateCoinsDisplay();
+                    alert(`✅ "${itemName}" успешно куплен!`);
+                }
+            } else {
+                alert('❌ Недостаточно Coins для покупки!');
+            }
+        }
+
+        function openBuyCoinsModal() {
+            const modalContent = `
+                <div class="buy-coins-modal">
+                    <div class="modal-title">💳 Купить Nebula Coins</div>
+                    <div class="coins-packages">
+                        <div class="package" onclick="buyCoinsPackage(100, 50)">
+                            <div class="package-coins">100 Coins</div>
+                            <div class="package-price">50₽</div>
+                        </div>
+                        <div class="package" onclick="buyCoinsPackage(500, 200)">
+                            <div class="package-coins">500 Coins</div>
+                            <div class="package-price">200₽</div>
+                        </div>
+                        <div class="package" onclick="buyCoinsPackage(1000, 350)">
+                            <div class="package-coins">1000 Coins</div>
+                            <div class="package-price">350₽</div>
+                        </div>
+                        <div class="package" onclick="buyCoinsPackage(2500, 800)">
+                            <div class="package-coins">2500 Coins</div>
+                            <div class="package-price">800₽</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('buy-coins');
+        }
+
+        function buyCoinsPackage(coins, price) {
+            if (confirm(`Купить ${coins} Coins за ${price}₽?`)) {
+                userCoins += coins;
+                updateCoinsDisplay();
+                closeModal();
+                alert(`✅ Получено ${coins} Coins!`);
+            }
+        }
+
+        function addCoins(amount) {
+            userCoins += amount;
+            updateCoinsDisplay();
+        }
+
+        function updateCoinsDisplay() {
+            document.getElementById('user-coins').textContent = userCoins.toLocaleString();
+            document.getElementById('shop-coins').textContent = userCoins.toLocaleString();
+        }
+
+        // Education Functions
+        function openCourse(courseId) {
+            const courses = {
+                'fitness-basics': {
+                    name: 'Основы фитнеса',
+                    price: 0
+                },
+                'nutrition-science': {
+                    name: 'Наука о питании',
+                    price: 500
+                },
+                'mental-health': {
+                    name: 'Ментальное здоровье',
+                    price: 300
+                }
+            };
+
+            const course = courses[courseId];
+            if (course.price === 0 || userCoins >= course.price) {
+                if (course.price > 0) {
+                    userCoins -= course.price;
+                    updateCoinsDisplay();
+                }
+                alert(`🎓 Курс "${course.name}" начат! Удачи в обучении!`);
+            } else {
+                alert('❌ Недостаточно Coins для покупки курса!');
+            }
+        }
+
+        function viewCertificate(certificateId) {
+            alert('🏆 Сертификат открыт! Поздравляем с достижением!');
+        }
+
+        // Health Functions
+        function syncDevice(deviceType) {
+            alert(`🔄 Синхронизация с ${deviceType} завершена!`);
+        }
+
+        function connectDevice(deviceType) {
+            alert(`🔗 Подключение к ${deviceType}... Устройство подключено!`);
+        }
+
+        // Notification System
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <div class="notification-icon">${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</div>
+                    <div class="notification-message">${message}</div>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Add notification styles
+        const notificationStyles = `
+            .notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(30, 41, 59, 0.95);
+                border-radius: 12px;
+                padding: 16px;
+                border: 1px solid rgba(148, 163, 184, 0.3);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            }
+            
+            .notification.success {
+                border-color: #10b981;
+                background: rgba(16, 185, 129, 0.1);
+            }
+            
+            .notification.error {
+                border-color: #ef4444;
+                background: rgba(239, 68, 68, 0.1);
+            }
+            
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .notification-icon {
+                font-size: 1.2rem;
+            }
+            
+            .notification-message {
+                flex: 1;
+                color: #f8fafc;
+            }
+            
+            .notification-close {
+                background: none;
+                border: none;
+                color: #94a3b8;
+                cursor: pointer;
+                font-size: 1.2rem;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+            }
+            
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = notificationStyles;
+        document.head.appendChild(styleSheet);
+
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
             updateSecurityLevel(currentSecurityLevel);
             initializeAchievements();
             initializeSportsCards();
+            initializeLeaderboard();
+            showShopCategory('premium');
             
             // Add some initial logs
             addSecurityLog('Система запущена', 'Система', '✅ Инициализация завершена');
             addSecurityLog('Проверка безопасности', 'Система', '✅ Все системы в норме');
+            
+            // Show welcome notification
+            setTimeout(() => {
+                showNotification('Добро пожаловать в Nebula Sports! 🚀', 'success');
+            }, 1000);
         });
     </script>
 </body>
