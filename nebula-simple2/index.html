@@ -448,6 +448,252 @@
             color: #8b5cf6;
         }
 
+        /* Group Chats Styles */
+        .group-chats-section {
+            margin-bottom: 40px;
+        }
+
+        .chats-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .chat-tab {
+            padding: 10px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            color: #8b5cf6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chat-tab:hover, .chat-tab.active {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .chat-content {
+            display: none;
+        }
+
+        .chat-content.active {
+            display: block;
+        }
+
+        /* Groups Tab Styles */
+        .group-list {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .group-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .group-item:hover {
+            background: rgba(30, 41, 59, 1);
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+        }
+
+        .group-avatar {
+            font-size: 2.5rem;
+            margin-right: 16px;
+        }
+
+        .group-info {
+            flex: 1;
+        }
+
+        .group-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .group-last-message {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+
+        .group-time {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        .group-unread {
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .create-group-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .create-group-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Voice Chat Styles */
+        .voice-rooms {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .voice-room {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .voice-room:hover {
+            background: rgba(30, 41, 59, 1);
+            transform: translateY(-2px);
+            border-color: #06b6d4;
+        }
+
+        .room-icon {
+            font-size: 2.5rem;
+            margin-right: 16px;
+        }
+
+        .room-info {
+            flex: 1;
+        }
+
+        .room-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .room-participants {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .room-status {
+            font-size: 1.2rem;
+        }
+
+        .create-voice-room-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #06b6d4, #8b5cf6);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .create-voice-room-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Circles Styles */
+        .circles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .circle-item {
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .circle-item:hover {
+            background: rgba(30, 41, 59, 1);
+            transform: translateY(-4px);
+            border-color: #10b981;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+        }
+
+        .circle-avatar {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .circle-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .circle-members {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .circle-activity {
+            color: #10b981;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .create-circle-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #10b981, #06b6d4);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .create-circle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
         .main-live {
             border: 2px solid #8b5cf6;
             box-shadow: 0 0 24px 0 #8b5cf633;
@@ -755,6 +1001,444 @@
             font-size: 1.5rem;
             color: #8b5cf6;
             cursor: pointer;
+        }
+
+        /* Group Chat Modal Styles */
+        .group-chat-modal {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            background: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            padding: 16px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .chat-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .chat-members {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            max-width: 80%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .message-content {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 12px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+        }
+
+        .message-author {
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+            color: #8b5cf6;
+        }
+
+        .message.user .message-author {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .message-text {
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+
+        .message.user .message-time {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .chat-input-container {
+            padding: 16px 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 24px;
+            color: #f8fafc;
+            font-size: 0.9rem;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .send-btn {
+            padding: 12px 16px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 24px;
+            color: white;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Voice Chat Modal Styles */
+        .voice-chat-modal {
+            width: 100%;
+            max-width: 400px;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .voice-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .voice-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .voice-participants {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .voice-controls {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .voice-btn {
+            padding: 12px 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            color: #f8fafc;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .voice-btn:hover {
+            background: rgba(30, 41, 59, 1);
+            border-color: #8b5cf6;
+        }
+
+        .voice-btn.muted {
+            background: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .voice-btn.speaker-off {
+            background: #64748b;
+            border-color: #64748b;
+        }
+
+        .voice-participants-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .participant {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .participant-avatar {
+            font-size: 1.5rem;
+        }
+
+        .participant-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .participant-status {
+            font-size: 1.2rem;
+        }
+
+        .participant-status.speaking {
+            color: #10b981;
+        }
+
+        .participant-status.muted {
+            color: #ef4444;
+        }
+
+        .participant-status.listening {
+            color: #06b6d4;
+        }
+
+        /* Circle Modal Styles */
+        .circle-modal {
+            width: 100%;
+            max-width: 500px;
+            max-height: 600px;
+            background: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .circle-header {
+            padding: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .circle-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .circle-stats {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .circle-posts {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .circle-post {
+            padding: 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            margin-bottom: 16px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .post-avatar {
+            font-size: 1.5rem;
+        }
+
+        .post-info {
+            flex: 1;
+        }
+
+        .post-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .post-time {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        .post-content {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            color: #8b5cf6;
+        }
+
+        .circle-actions {
+            padding: 16px 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .join-circle-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #10b981, #06b6d4);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .join-circle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Create Modal Styles */
+        .create-group-modal,
+        .create-voice-modal,
+        .create-circle-modal {
+            width: 100%;
+            max-width: 400px;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .create-group-form,
+        .create-voice-form,
+        .create-circle-form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #f8fafc;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            color: #f8fafc;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .cancel-btn {
+            flex: 1;
+            padding: 12px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            color: #f8fafc;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cancel-btn:hover {
+            background: rgba(30, 41, 59, 1);
+            border-color: #ef4444;
+        }
+
+        .create-btn {
+            flex: 1;
+            padding: 12px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
         }
 
         /* Account Profile Styles */
@@ -1861,7 +2545,115 @@
 
         <!-- Community -->
         <div id="community" class="content">
+            <!-- Group Chats Section -->
+            <div class="group-chats-section">
+                <div class="section-title">💬 Групповые чаты</div>
+                <div class="chats-tabs">
+                    <div class="chat-tab active" onclick="showChatTab('groups')">👥 Группы</div>
+                    <div class="chat-tab" onclick="showChatTab('voice')">🎤 Голосовой чат</div>
+                    <div class="chat-tab" onclick="showChatTab('circles')">⭕ Кружки</div>
+                </div>
+                
+                <!-- Groups Tab -->
+                <div id="groups-tab" class="chat-content active">
+                    <div class="group-list">
+                        <div class="group-item" onclick="openGroupChat('fitness-group')">
+                            <div class="group-avatar">💪</div>
+                            <div class="group-info">
+                                <div class="group-name">Фитнес-энтузиасты</div>
+                                <div class="group-last-message">Алексей: Отличная тренировка!</div>
+                                <div class="group-time">2 мин назад</div>
+                            </div>
+                            <div class="group-unread">3</div>
+                        </div>
+                        <div class="group-item" onclick="openGroupChat('running-club')">
+                            <div class="group-avatar">🏃‍♂️</div>
+                            <div class="group-info">
+                                <div class="group-name">Беговой клуб</div>
+                                <div class="group-last-message">Мария: Завтра пробежка в 7:00</div>
+                                <div class="group-time">15 мин назад</div>
+                            </div>
+                            <div class="group-unread">1</div>
+                        </div>
+                        <div class="group-item" onclick="openGroupChat('nutrition-group')">
+                            <div class="group-avatar">🥗</div>
+                            <div class="group-info">
+                                <div class="group-name">Правильное питание</div>
+                                <div class="group-last-message">Дмитрий: Новый рецепт протеинового коктейля</div>
+                                <div class="group-time">1 час назад</div>
+                            </div>
+                            <div class="group-unread">0</div>
+                        </div>
+                    </div>
+                    <button class="create-group-btn" onclick="createNewGroup()">➕ Создать группу</button>
+                </div>
+                
+                <!-- Voice Chat Tab -->
+                <div id="voice-tab" class="chat-content">
+                    <div class="voice-rooms">
+                        <div class="voice-room" onclick="joinVoiceRoom('fitness-talk')">
+                            <div class="room-icon">💪</div>
+                            <div class="room-info">
+                                <div class="room-name">Фитнес-разговоры</div>
+                                <div class="room-participants">👥 5 участников</div>
+                            </div>
+                            <div class="room-status online">🟢</div>
+                        </div>
+                        <div class="voice-room" onclick="joinVoiceRoom('running-chat')">
+                            <div class="room-icon">🏃‍♀️</div>
+                            <div class="room-info">
+                                <div class="room-name">Беговые советы</div>
+                                <div class="room-participants">👥 3 участника</div>
+                            </div>
+                            <div class="room-status online">🟢</div>
+                        </div>
+                        <div class="voice-room" onclick="joinVoiceRoom('nutrition-advice')">
+                            <div class="room-icon">🥗</div>
+                            <div class="room-info">
+                                <div class="room-name">Советы по питанию</div>
+                                <div class="room-participants">👥 8 участников</div>
+                            </div>
+                            <div class="room-status online">🟢</div>
+                        </div>
+                    </div>
+                    <button class="create-voice-room-btn" onclick="createVoiceRoom()">🎤 Создать голосовую комнату</button>
+                </div>
+                
+                <!-- Circles Tab -->
+                <div id="circles-tab" class="chat-content">
+                    <div class="circles-grid">
+                        <div class="circle-item" onclick="openCircle('beginner-fitness')">
+                            <div class="circle-avatar">🌱</div>
+                            <div class="circle-name">Новички в фитнесе</div>
+                            <div class="circle-members">127 участников</div>
+                            <div class="circle-activity">Активность: высокая</div>
+                        </div>
+                        <div class="circle-item" onclick="openCircle('advanced-athletes')">
+                            <div class="circle-avatar">🏆</div>
+                            <div class="circle-name">Продвинутые атлеты</div>
+                            <div class="circle-members">89 участников</div>
+                            <div class="circle-activity">Активность: средняя</div>
+                        </div>
+                        <div class="circle-item" onclick="openCircle('yoga-community')">
+                            <div class="circle-avatar">🧘‍♀️</div>
+                            <div class="circle-name">Йога-сообщество</div>
+                            <div class="circle-members">203 участника</div>
+                            <div class="circle-activity">Активность: высокая</div>
+                        </div>
+                        <div class="circle-item" onclick="openCircle('crossfit-group')">
+                            <div class="circle-avatar">💥</div>
+                            <div class="circle-name">Кроссфит группа</div>
+                            <div class="circle-members">156 участников</div>
+                            <div class="circle-activity">Активность: высокая</div>
+                        </div>
+                    </div>
+                    <button class="create-circle-btn" onclick="createNewCircle()">⭕ Создать кружок</button>
+                </div>
+            </div>
+            
+            <!-- Community Posts -->
             <div class="community-posts">
+                <div class="section-title">📝 Сообщество</div>
                 <div class="post-card">
                     <div class="post-header">
                         <div class="post-avatar">👨‍💼</div>
@@ -2546,6 +3338,353 @@
             alert(`${deviceNames[deviceType]} успешно подключен! Теперь вы можете отслеживать свои тренировки и показатели здоровья.`);
             closeModal();
         }
+
+        // Group Chats Functions
+        function showChatTab(tabName) {
+            // Hide all chat content
+            const chatContents = document.querySelectorAll('.chat-content');
+            chatContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all chat tabs
+            const chatTabs = document.querySelectorAll('.chat-tab');
+            chatTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to selected tab
+            event.target.classList.add('active');
+        }
+
+        function openGroupChat(groupId) {
+            const groupNames = {
+                'fitness-group': 'Фитнес-энтузиасты',
+                'running-club': 'Беговой клуб',
+                'nutrition-group': 'Правильное питание'
+            };
+            
+            const groupName = groupNames[groupId] || 'Группа';
+            
+            // Create modal content for group chat
+            const modalContent = `
+                <div class="group-chat-modal">
+                    <div class="chat-header">
+                        <div class="chat-title">💬 ${groupName}</div>
+                        <div class="chat-members">👥 12 участников</div>
+                    </div>
+                    <div class="chat-messages" id="group-chat-messages">
+                        <div class="message other">
+                            <div class="message-avatar">👨‍💼</div>
+                            <div class="message-content">
+                                <div class="message-author">Алексей</div>
+                                <div class="message-text">Привет всем! Как дела с тренировками?</div>
+                                <div class="message-time">10:30</div>
+                            </div>
+                        </div>
+                        <div class="message other">
+                            <div class="message-avatar">👩‍🏃‍♀️</div>
+                            <div class="message-content">
+                                <div class="message-author">Мария</div>
+                                <div class="message-text">Отлично! Сегодня пробежала 5км 🏃‍♀️</div>
+                                <div class="message-time">10:32</div>
+                            </div>
+                        </div>
+                        <div class="message user">
+                            <div class="message-content">
+                                <div class="message-text">Молодец! Я сегодня в зале был 💪</div>
+                                <div class="message-time">10:35</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="group-chat-input" placeholder="Напишите сообщение..." class="chat-input">
+                        <button onclick="sendGroupMessage()" class="send-btn">📤</button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('group-chat');
+            
+            // Focus on input
+            setTimeout(() => {
+                document.getElementById('group-chat-input').focus();
+            }, 100);
+        }
+
+        function sendGroupMessage() {
+            const input = document.getElementById('group-chat-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                const chatMessages = document.getElementById('group-chat-messages');
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user';
+                userMessage.innerHTML = `
+                    <div class="message-content">
+                        <div class="message-text">${message}</div>
+                        <div class="message-time">${new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'})}</div>
+                    </div>
+                `;
+                
+                chatMessages.appendChild(userMessage);
+                input.value = '';
+                
+                // Auto-scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        function joinVoiceRoom(roomId) {
+            const roomNames = {
+                'fitness-talk': 'Фитнес-разговоры',
+                'running-chat': 'Беговые советы',
+                'nutrition-advice': 'Советы по питанию'
+            };
+            
+            const roomName = roomNames[roomId] || 'Голосовая комната';
+            
+            const modalContent = `
+                <div class="voice-chat-modal">
+                    <div class="voice-header">
+                        <div class="voice-title">🎤 ${roomName}</div>
+                        <div class="voice-participants">👥 5 участников онлайн</div>
+                    </div>
+                    <div class="voice-controls">
+                        <button class="voice-btn mute" onclick="toggleMute()">🎤 Включить микрофон</button>
+                        <button class="voice-btn speaker" onclick="toggleSpeaker()">🔊 Включить звук</button>
+                        <button class="voice-btn leave" onclick="leaveVoiceRoom()">📞 Покинуть комнату</button>
+                    </div>
+                    <div class="voice-participants-list">
+                        <div class="participant">
+                            <div class="participant-avatar">👨‍💼</div>
+                            <div class="participant-name">Алексей</div>
+                            <div class="participant-status speaking">🎤</div>
+                        </div>
+                        <div class="participant">
+                            <div class="participant-avatar">👩‍🏃‍♀️</div>
+                            <div class="participant-name">Мария</div>
+                            <div class="participant-status muted">🔇</div>
+                        </div>
+                        <div class="participant">
+                            <div class="participant-avatar">👨‍💻</div>
+                            <div class="participant-name">Дмитрий</div>
+                            <div class="participant-status listening">👂</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('voice-chat');
+        }
+
+        function openCircle(circleId) {
+            const circleNames = {
+                'beginner-fitness': 'Новички в фитнесе',
+                'advanced-athletes': 'Продвинутые атлеты',
+                'yoga-community': 'Йога-сообщество',
+                'crossfit-group': 'Кроссфит группа'
+            };
+            
+            const circleName = circleNames[circleId] || 'Кружок';
+            
+            const modalContent = `
+                <div class="circle-modal">
+                    <div class="circle-header">
+                        <div class="circle-title">⭕ ${circleName}</div>
+                        <div class="circle-stats">
+                            <div class="stat">👥 127 участников</div>
+                            <div class="stat">📝 45 постов</div>
+                            <div class="stat">💬 234 сообщения</div>
+                        </div>
+                    </div>
+                    <div class="circle-posts">
+                        <div class="circle-post">
+                            <div class="post-header">
+                                <div class="post-avatar">🌱</div>
+                                <div class="post-info">
+                                    <div class="post-author">Новичок_Анна</div>
+                                    <div class="post-time">2 часа назад</div>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                Привет! Я только начинаю заниматься фитнесом. Какие упражнения посоветуете для новичка?
+                            </div>
+                            <div class="post-actions">
+                                <button class="action-btn">👍 12</button>
+                                <button class="action-btn">💬 8</button>
+                                <button class="action-btn">📤</button>
+                            </div>
+                        </div>
+                        <div class="circle-post">
+                            <div class="post-header">
+                                <div class="post-avatar">💪</div>
+                                <div class="post-info">
+                                    <div class="post-author">Тренер_Макс</div>
+                                    <div class="post-time">4 часа назад</div>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                Отличный вопрос! Начните с базовых упражнений: приседания, отжимания, планка. Постепенно увеличивайте нагрузку.
+                            </div>
+                            <div class="post-actions">
+                                <button class="action-btn">👍 25</button>
+                                <button class="action-btn">💬 5</button>
+                                <button class="action-btn">📤</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle-actions">
+                        <button class="join-circle-btn" onclick="joinCircle('${circleId}')">⭕ Присоединиться к кружку</button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('circle');
+        }
+
+        function createNewGroup() {
+            const modalContent = `
+                <div class="create-group-modal">
+                    <div class="modal-title">➕ Создать новую группу</div>
+                    <form class="create-group-form">
+                        <div class="form-group">
+                            <label>Название группы</label>
+                            <input type="text" id="group-name" placeholder="Введите название группы" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Описание</label>
+                            <textarea id="group-description" placeholder="Опишите тематику группы" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Тип группы</label>
+                            <select id="group-type">
+                                <option value="public">Публичная</option>
+                                <option value="private">Приватная</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="closeModal()" class="cancel-btn">Отмена</button>
+                            <button type="submit" class="create-btn">Создать группу</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('create-group');
+        }
+
+        function createVoiceRoom() {
+            const modalContent = `
+                <div class="create-voice-modal">
+                    <div class="modal-title">🎤 Создать голосовую комнату</div>
+                    <form class="create-voice-form">
+                        <div class="form-group">
+                            <label>Название комнаты</label>
+                            <input type="text" id="room-name" placeholder="Введите название комнаты" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Описание</label>
+                            <textarea id="room-description" placeholder="Опишите тематику комнаты" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Максимум участников</label>
+                            <select id="room-limit">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="closeModal()" class="cancel-btn">Отмена</button>
+                            <button type="submit" class="create-btn">Создать комнату</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('create-voice');
+        }
+
+        function createNewCircle() {
+            const modalContent = `
+                <div class="create-circle-modal">
+                    <div class="modal-title">⭕ Создать новый кружок</div>
+                    <form class="create-circle-form">
+                        <div class="form-group">
+                            <label>Название кружка</label>
+                            <input type="text" id="circle-name" placeholder="Введите название кружка" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Описание</label>
+                            <textarea id="circle-description" placeholder="Опишите тематику кружка" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Категория</label>
+                            <select id="circle-category">
+                                <option value="fitness">Фитнес</option>
+                                <option value="running">Бег</option>
+                                <option value="yoga">Йога</option>
+                                <option value="nutrition">Питание</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="closeModal()" class="cancel-btn">Отмена</button>
+                            <button type="submit" class="create-btn">Создать кружок</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('create-circle');
+        }
+
+        // Voice chat controls
+        function toggleMute() {
+            const btn = event.target;
+            if (btn.classList.contains('muted')) {
+                btn.classList.remove('muted');
+                btn.textContent = '🎤 Включить микрофон';
+            } else {
+                btn.classList.add('muted');
+                btn.textContent = '🔇 Выключить микрофон';
+            }
+        }
+
+        function toggleSpeaker() {
+            const btn = event.target;
+            if (btn.classList.contains('speaker-off')) {
+                btn.classList.remove('speaker-off');
+                btn.textContent = '🔊 Включить звук';
+            } else {
+                btn.classList.add('speaker-off');
+                btn.textContent = '🔇 Выключить звук';
+            }
+        }
+
+        function leaveVoiceRoom() {
+            closeModal();
+            alert('Вы покинули голосовую комнату');
+        }
+
+        function joinCircle(circleId) {
+            closeModal();
+            alert('Вы успешно присоединились к кружку!');
+        }
+
+        // Handle Enter key for group chat input
+        document.addEventListener('keypress', function(e) {
+            if (e.target.id === 'group-chat-input' && e.key === 'Enter') {
+                sendGroupMessage();
+            }
+        });
     </script>
 </body>
 </html>
