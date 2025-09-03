@@ -1441,6 +1441,429 @@
             box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
         }
 
+        /* Security System Styles */
+        .security-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 24px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .security-status {
+            margin-top: 20px;
+        }
+
+        .current-level {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #8b5cf6;
+        }
+
+        .security-indicator {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .level-bar {
+            height: 8px;
+            background: rgba(148, 163, 184, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .level-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .level-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .security-sections {
+            display: grid;
+            gap: 24px;
+        }
+
+        .security-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        /* QR Scanner Styles */
+        .qr-scanner-container {
+            text-align: center;
+        }
+
+        .scanner-preview {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: #0f172a;
+            border-radius: 12px;
+            margin: 0 auto 20px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #8b5cf6;
+        }
+
+        .scanner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scanner-frame {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #8b5cf6;
+            border-radius: 12px;
+            position: relative;
+            animation: scannerPulse 2s infinite;
+        }
+
+        .scanner-frame::before,
+        .scanner-frame::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #8b5cf6;
+        }
+
+        .scanner-frame::before {
+            top: -3px;
+            left: -3px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .scanner-frame::after {
+            bottom: -3px;
+            right: -3px;
+            border-left: none;
+            border-top: none;
+        }
+
+        @keyframes scannerPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .scanner-text {
+            margin-top: 20px;
+            color: #f8fafc;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .scanner-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .scanner-btn {
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scanner-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .scan-result {
+            padding: 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .result-success {
+            color: #10b981;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .employee-info {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Access Levels Styles */
+        .access-levels {
+            display: grid;
+            gap: 16px;
+        }
+
+        .level-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .level-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .level-card[data-level="1"] { border-left: 4px solid #10b981; }
+        .level-card[data-level="2"] { border-left: 4px solid #eab308; }
+        .level-card[data-level="3"] { border-left: 4px solid #f97316; }
+        .level-card[data-level="4"] { border-left: 4px solid #ef4444; }
+        .level-card[data-level="5"] { border-left: 4px solid #8b5cf6; }
+
+        .level-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .level-info {
+            flex: 1;
+        }
+
+        .level-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        .level-desc {
+            color: #94a3b8;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .level-permissions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .permission {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .level-status {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .level-status:contains("Активен") {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+
+        .level-status:contains("Недоступен") {
+            background: rgba(148, 163, 184, 0.1);
+            color: #94a3b8;
+            border: 1px solid #94a3b8;
+        }
+
+        /* Security Logs Styles */
+        .security-logs {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 100px;
+            gap: 16px;
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .log-time {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .log-action {
+            color: #f8fafc;
+            font-weight: 500;
+        }
+
+        .log-user {
+            color: #c7d2fe;
+        }
+
+        .log-status {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .log-status.success {
+            color: #10b981;
+        }
+
+        .log-status.error {
+            color: #ef4444;
+        }
+
+        /* Emergency Controls Styles */
+        .emergency-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .emergency-btn {
+            padding: 16px 24px;
+            background: linear-gradient(45deg, #ef4444, #f97316);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .emergency-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .emergency-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Carsharing Styles */
+        .carsharing-modal {
+            width: 100%;
+            max-width: 500px;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .carsharing-options {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .car-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .car-option:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+        }
+
+        .car-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .car-info {
+            flex: 1;
+        }
+
+        .car-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        .car-price {
+            color: #10b981;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .car-details {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .carsharing-map {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            height: 200px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .car-locations {
+            position: relative;
+            height: 100%;
+        }
+
+        .car-location {
+            position: absolute;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: carPulse 2s infinite;
+        }
+
+        .car-location:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes carPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         /* Account Profile Styles */
         .account-profile {
             max-width: 800px;
@@ -2049,6 +2472,7 @@
             <div class="nav-tab" onclick="showTab('workouts')">💪 Workouts</div>
             <div class="nav-tab" onclick="showTab('travel')">✈️ Travel</div>
             <div class="nav-tab" onclick="showTab('community')">👥 Community</div>
+            <div class="nav-tab" onclick="showTab('security')">🔒 Security</div>
             <div class="nav-tab" onclick="showTab('account')">👤 Аккаунт</div>
             <div class="nav-tab" onclick="showTab('dashboard')">🏠 Dashboard</div>
         </div>
@@ -2370,12 +2794,14 @@
             </div>
             
             <div class="travel-services">
+                <button class="travel-service-btn" onclick="openModal('carsharing')">🚗 Каршеринг</button>
                 <button class="travel-service-btn" onclick="openModal('escooter')">🛴 Аренда самоката/велосипеда</button>
                 <button class="travel-service-btn" onclick="openModal('powerbank')">🔋 Аренда повербанка</button>
             </div>
             <div class="map-section">
                 <div class="map-title">Карта сервисов</div>
                 <div class="map-point" style="top:60px;left:40px;" onclick="openModal('taxi')">🚕</div>
+                <div class="map-point" style="top:100px;left:80px;" onclick="openModal('carsharing')">🚗</div>
                 <div class="map-point" style="top:120px;left:120px;" onclick="openModal('escooter')">🛴</div>
                 <div class="map-point" style="top:80px;left:220px;" onclick="openModal('powerbank')">🔋</div>
                 <div style="margin-top:160px;color:#c7d2fe;font-size:0.95rem;">*Карта интерактивна, выберите сервис</div>
@@ -2404,6 +2830,159 @@
                         <div class="transport-price">от 1,800₽</div>
                     </div>
                     <div class="transport-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security -->
+        <div id="security" class="content">
+            <div class="security-header">
+                <div class="section-title">🔒 Система безопасности</div>
+                <div class="security-status">
+                    <div class="current-level">Текущий уровень: <span id="current-security-level">3</span></div>
+                    <div class="security-indicator">
+                        <div class="level-bar">
+                            <div class="level-fill" id="level-fill" style="width: 60%"></div>
+                        </div>
+                        <div class="level-labels">
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-sections">
+                <!-- QR Scanner Section -->
+                <div class="security-section">
+                    <div class="section-title">📱 QR-сканер доступа</div>
+                    <div class="qr-scanner-container">
+                        <div class="scanner-preview" id="scanner-preview">
+                            <div class="scanner-overlay">
+                                <div class="scanner-frame"></div>
+                                <div class="scanner-text">Наведите камеру на QR-код бейджа</div>
+                            </div>
+                        </div>
+                        <div class="scanner-controls">
+                            <button class="scanner-btn" onclick="startQRScanner()">📷 Запустить сканер</button>
+                            <button class="scanner-btn" onclick="stopQRScanner()">⏹️ Остановить</button>
+                        </div>
+                        <div class="scan-result" id="scan-result" style="display: none;">
+                            <div class="result-success">✅ Доступ разрешен</div>
+                            <div class="employee-info" id="employee-info"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Access Levels Section -->
+                <div class="security-section">
+                    <div class="section-title">🛡️ Уровни доступа</div>
+                    <div class="access-levels">
+                        <div class="level-card" data-level="1">
+                            <div class="level-icon">🟢</div>
+                            <div class="level-info">
+                                <div class="level-name">Уровень 1 - Базовый</div>
+                                <div class="level-desc">Просмотр контента, базовые функции</div>
+                                <div class="level-permissions">
+                                    <span class="permission">👁️ Просмотр</span>
+                                    <span class="permission">💬 Комментарии</span>
+                                </div>
+                            </div>
+                            <div class="level-status" id="level-1-status">Активен</div>
+                        </div>
+                        <div class="level-card" data-level="2">
+                            <div class="level-icon">🟡</div>
+                            <div class="level-info">
+                                <div class="level-name">Уровень 2 - Стандартный</div>
+                                <div class="level-desc">Создание контента, участие в сообществах</div>
+                                <div class="level-permissions">
+                                    <span class="permission">📝 Создание постов</span>
+                                    <span class="permission">👥 Группы</span>
+                                    <span class="permission">📊 Статистика</span>
+                                </div>
+                            </div>
+                            <div class="level-status" id="level-2-status">Активен</div>
+                        </div>
+                        <div class="level-card" data-level="3">
+                            <div class="level-icon">🟠</div>
+                            <div class="level-info">
+                                <div class="level-name">Уровень 3 - Продвинутый</div>
+                                <div class="level-desc">Модерация контента, управление группами</div>
+                                <div class="level-permissions">
+                                    <span class="permission">🛡️ Модерация</span>
+                                    <span class="permission">👑 Управление группами</span>
+                                    <span class="permission">📈 Аналитика</span>
+                                </div>
+                            </div>
+                            <div class="level-status" id="level-3-status">Активен</div>
+                        </div>
+                        <div class="level-card" data-level="4">
+                            <div class="level-icon">🔴</div>
+                            <div class="level-info">
+                                <div class="level-name">Уровень 4 - Административный</div>
+                                <div class="level-desc">Управление пользователями, системные настройки</div>
+                                <div class="level-permissions">
+                                    <span class="permission">👤 Управление пользователями</span>
+                                    <span class="permission">⚙️ Системные настройки</span>
+                                    <span class="permission">🔧 Техническая поддержка</span>
+                                </div>
+                            </div>
+                            <div class="level-status" id="level-4-status">Недоступен</div>
+                        </div>
+                        <div class="level-card" data-level="5">
+                            <div class="level-icon">🟣</div>
+                            <div class="level-info">
+                                <div class="level-name">Уровень 5 - Супер-админ</div>
+                                <div class="level-desc">Полный доступ ко всем функциям системы</div>
+                                <div class="level-permissions">
+                                    <span class="permission">🔐 Полный доступ</span>
+                                    <span class="permission">🗄️ База данных</span>
+                                    <span class="permission">🚀 Развертывание</span>
+                                </div>
+                            </div>
+                            <div class="level-status" id="level-5-status">Недоступен</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Logs Section -->
+                <div class="security-section">
+                    <div class="section-title">📋 Журнал безопасности</div>
+                    <div class="security-logs">
+                        <div class="log-entry">
+                            <div class="log-time">14:32</div>
+                            <div class="log-action">QR-сканирование</div>
+                            <div class="log-user">Иван Петров (ID: 12345)</div>
+                            <div class="log-status success">✅ Успешно</div>
+                        </div>
+                        <div class="log-entry">
+                            <div class="log-time">14:28</div>
+                            <div class="log-action">Попытка доступа</div>
+                            <div class="log-user">Неизвестный пользователь</div>
+                            <div class="log-status error">❌ Отклонено</div>
+                        </div>
+                        <div class="log-entry">
+                            <div class="log-time">14:15</div>
+                            <div class="log-action">Изменение уровня доступа</div>
+                            <div class="log-user">Мария Сидорова (ID: 67890)</div>
+                            <div class="log-status success">✅ Уровень 2 → 3</div>
+                        </div>
+                        <div class="log-entry">
+                            <div class="log-time">13:45</div>
+                            <div class="log-action">Модерация контента</div>
+                            <div class="log-user">Алексей Козлов (ID: 54321)</div>
+                            <div class="log-status success">✅ Пост удален</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Controls -->
+                <div class="security-section">
+                    <div class="section-title">🚨 Экстренные меры</div>
+                    <div class="emergency-controls">
+                        <button class="emergency-btn" onclick="lockAllAccess()">🔒 Заблокировать все доступы</button>
+                        <button class="emergency-btn" onclick="resetSecurityLevel()">🔄 Сбросить уровень безопасности</button>
+                        <button class="emergency-btn" onclick="generateSecurityReport()">📊 Создать отчет безопасности</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3685,6 +4264,278 @@
                 sendGroupMessage();
             }
         });
+
+        // Security System Functions
+        let currentSecurityLevel = 3;
+        let scannerActive = false;
+        let scannerStream = null;
+
+        function updateSecurityLevel(level) {
+            currentSecurityLevel = level;
+            document.getElementById('current-security-level').textContent = level;
+            document.getElementById('level-fill').style.width = (level * 20) + '%';
+            
+            // Update level status
+            for (let i = 1; i <= 5; i++) {
+                const statusElement = document.getElementById(`level-${i}-status`);
+                if (i <= level) {
+                    statusElement.textContent = 'Активен';
+                    statusElement.style.background = 'rgba(16, 185, 129, 0.1)';
+                    statusElement.style.color = '#10b981';
+                    statusElement.style.border = '1px solid #10b981';
+                } else {
+                    statusElement.textContent = 'Недоступен';
+                    statusElement.style.background = 'rgba(148, 163, 184, 0.1)';
+                    statusElement.style.color = '#94a3b8';
+                    statusElement.style.border = '1px solid #94a3b8';
+                }
+            }
+        }
+
+        function startQRScanner() {
+            if (scannerActive) return;
+            
+            scannerActive = true;
+            const preview = document.getElementById('scanner-preview');
+            
+            // Simulate camera access
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    scannerStream = stream;
+                    const video = document.createElement('video');
+                    video.srcObject = stream;
+                    video.style.width = '100%';
+                    video.style.height = '100%';
+                    video.style.objectFit = 'cover';
+                    video.style.borderRadius = '12px';
+                    
+                    preview.innerHTML = '';
+                    preview.appendChild(video);
+                    video.play();
+                    
+                    // Simulate QR detection after 3 seconds
+                    setTimeout(() => {
+                        simulateQRDetection();
+                    }, 3000);
+                })
+                .catch(err => {
+                    console.log('Camera access denied, using simulation');
+                    simulateQRDetection();
+                });
+        }
+
+        function stopQRScanner() {
+            if (scannerStream) {
+                scannerStream.getTracks().forEach(track => track.stop());
+                scannerStream = null;
+            }
+            
+            scannerActive = false;
+            const preview = document.getElementById('scanner-preview');
+            preview.innerHTML = `
+                <div class="scanner-overlay">
+                    <div class="scanner-frame"></div>
+                    <div class="scanner-text">Наведите камеру на QR-код бейджа</div>
+                </div>
+            `;
+            
+            document.getElementById('scan-result').style.display = 'none';
+        }
+
+        function simulateQRDetection() {
+            if (!scannerActive) return;
+            
+            // Simulate successful QR scan
+            const employeeData = {
+                id: 'EMP001',
+                name: 'Иван Петров',
+                department: 'IT отдел',
+                position: 'Системный администратор',
+                accessLevel: 4,
+                badgeNumber: 'BADGE-12345'
+            };
+            
+            showScanResult(employeeData);
+        }
+
+        function showScanResult(employee) {
+            const resultDiv = document.getElementById('scan-result');
+            const infoDiv = document.getElementById('employee-info');
+            
+            infoDiv.innerHTML = `
+                <div><strong>ID:</strong> ${employee.id}</div>
+                <div><strong>Имя:</strong> ${employee.name}</div>
+                <div><strong>Отдел:</strong> ${employee.department}</div>
+                <div><strong>Должность:</strong> ${employee.position}</div>
+                <div><strong>Уровень доступа:</strong> ${employee.accessLevel}</div>
+                <div><strong>Номер бейджа:</strong> ${employee.badgeNumber}</div>
+            `;
+            
+            resultDiv.style.display = 'block';
+            
+            // Update security level based on employee access
+            if (employee.accessLevel > currentSecurityLevel) {
+                updateSecurityLevel(employee.accessLevel);
+                addSecurityLog('QR-сканирование', `${employee.name} (ID: ${employee.id})`, '✅ Уровень доступа повышен');
+            } else {
+                addSecurityLog('QR-сканирование', `${employee.name} (ID: ${employee.id})`, '✅ Доступ разрешен');
+            }
+            
+            // Auto-stop scanner after 5 seconds
+            setTimeout(() => {
+                stopQRScanner();
+            }, 5000);
+        }
+
+        function addSecurityLog(action, user, status) {
+            const logsContainer = document.querySelector('.security-logs');
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'});
+            
+            logEntry.innerHTML = `
+                <div class="log-time">${timeString}</div>
+                <div class="log-action">${action}</div>
+                <div class="log-user">${user}</div>
+                <div class="log-status ${status.includes('✅') ? 'success' : 'error'}">${status}</div>
+            `;
+            
+            logsContainer.insertBefore(logEntry, logsContainer.firstChild);
+            
+            // Keep only last 10 entries
+            while (logsContainer.children.length > 10) {
+                logsContainer.removeChild(logsContainer.lastChild);
+            }
+        }
+
+        function lockAllAccess() {
+            if (confirm('Вы уверены, что хотите заблокировать все доступы? Это действие нельзя отменить.')) {
+                updateSecurityLevel(0);
+                addSecurityLog('Экстренная блокировка', 'Система', '🔒 Все доступы заблокированы');
+                alert('Все доступы заблокированы!');
+            }
+        }
+
+        function resetSecurityLevel() {
+            if (confirm('Сбросить уровень безопасности до базового?')) {
+                updateSecurityLevel(1);
+                addSecurityLog('Сброс безопасности', 'Система', '🔄 Уровень сброшен до 1');
+                alert('Уровень безопасности сброшен!');
+            }
+        }
+
+        function generateSecurityReport() {
+            const report = `
+                ОТЧЕТ БЕЗОПАСНОСТИ
+                ==================
+                Дата: ${new Date().toLocaleDateString('ru-RU')}
+                Время: ${new Date().toLocaleTimeString('ru-RU')}
+                Текущий уровень: ${currentSecurityLevel}
+                
+                Статистика:
+                - Активных сессий: 12
+                - Попыток доступа: 45
+                - Успешных авторизаций: 38
+                - Отклоненных запросов: 7
+                
+                Последние действия:
+                - QR-сканирования: 15
+                - Изменения уровней: 3
+                - Модерация контента: 8
+            `;
+            
+            // Create and download report
+            const blob = new Blob([report], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `security-report-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            addSecurityLog('Генерация отчета', 'Система', '📊 Отчет безопасности создан');
+            alert('Отчет безопасности создан и загружен!');
+        }
+
+        // Initialize security system
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSecurityLevel(currentSecurityLevel);
+            
+            // Add some initial logs
+            addSecurityLog('Система запущена', 'Система', '✅ Инициализация завершена');
+            addSecurityLog('Проверка безопасности', 'Система', '✅ Все системы в норме');
+        });
+
+        // Carsharing modal function
+        function openCarsharingModal() {
+            const modalContent = `
+                <div class="carsharing-modal">
+                    <div class="modal-title">🚗 Каршеринг</div>
+                    <div class="carsharing-options">
+                        <div class="car-option" onclick="selectCar('economy')">
+                            <div class="car-icon">🚗</div>
+                            <div class="car-info">
+                                <div class="car-name">Эконом класс</div>
+                                <div class="car-price">от 8₽/мин</div>
+                                <div class="car-details">Kia Rio, Hyundai Solaris</div>
+                            </div>
+                        </div>
+                        <div class="car-option" onclick="selectCar('comfort')">
+                            <div class="car-icon">🚙</div>
+                            <div class="car-info">
+                                <div class="car-name">Комфорт класс</div>
+                                <div class="car-price">от 12₽/мин</div>
+                                <div class="car-details">Toyota Camry, Honda Accord</div>
+                            </div>
+                        </div>
+                        <div class="car-option" onclick="selectCar('premium')">
+                            <div class="car-icon">🚘</div>
+                            <div class="car-info">
+                                <div class="car-name">Премиум класс</div>
+                                <div class="car-price">от 18₽/мин</div>
+                                <div class="car-details">BMW 3 Series, Mercedes C-Class</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carsharing-map">
+                        <div class="map-title">Доступные автомобили</div>
+                        <div class="car-locations">
+                            <div class="car-location" style="top:40px;left:60px;" onclick="selectCar('economy')">🚗</div>
+                            <div class="car-location" style="top:80px;left:120px;" onclick="selectCar('comfort')">🚙</div>
+                            <div class="car-location" style="top:60px;left:200px;" onclick="selectCar('premium')">🚘</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = modalContent;
+            openModal('carsharing');
+        }
+
+        function selectCar(carType) {
+            const carNames = {
+                'economy': 'Эконом класс',
+                'comfort': 'Комфорт класс',
+                'premium': 'Премиум класс'
+            };
+            
+            closeModal();
+            alert(`Выбран автомобиль: ${carNames[carType]}. Бронирование успешно!`);
+        }
+
+        // Update openModal function to handle carsharing
+        const originalOpenModal = openModal;
+        function openModal(modalType) {
+            if (modalType === 'carsharing') {
+                openCarsharingModal();
+            } else {
+                originalOpenModal(modalType);
+            }
+        }
     </script>
 </body>
 </html>
