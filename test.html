@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Тест - Nebula Sports</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .test-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .success {
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .info {
+            color: #94a3b8;
+            margin: 10px 0;
+        }
+        .button {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 1rem;
+        }
+        .button:hover {
+            background: #7c3aed;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <div class="success">✅ Тест успешен!</div>
+        <div class="info">Если вы видите это сообщение, значит файл обновился!</div>
+        <div class="info">Время: <span id="time"></span></div>
+    </div>
+    
+    <div class="test-box">
+        <h2>🎯 Проверьте основные функции:</h2>
+        <button class="button" onclick="testNavigation()">📱 Тест навигации</button>
+        <button class="button" onclick="testAI()">🤖 Тест ИИ</button>
+        <button class="button" onclick="testVoice()">🎤 Тест голосового чата</button>
+        <button class="button" onclick="testQR()">🔒 Тест QR-сканера</button>
+    </div>
+    
+    <div class="test-box">
+        <h2>🌐 Ссылки:</h2>
+        <button class="button" onclick="openMain()">🏠 Открыть основное приложение</button>
+        <button class="button" onclick="openGitHub()">📱 GitHub Pages</button>
+    </div>
+
+    <script>
+        // Показать текущее время
+        document.getElementById('time').textContent = new Date().toLocaleString('ru-RU');
+        
+        function testNavigation() {
+            alert('✅ Навигация должна быть внизу с иконками!\n\nПроверьте:\n- Иконки внизу экрана\n- Анимации при переключении\n- Профиль слева вверху');
+        }
+        
+        function testAI() {
+            alert('✅ ИИ должен отвечать логично!\n\nПопробуйте спросить:\n- "Как начать тренировки?"\n- "Что есть для здоровья?"\n- "Привет"');
+        }
+        
+        function testVoice() {
+            alert('✅ Голосовой чат в диалогах!\n\nПроверьте:\n- Откройте "Сообщество"\n- Выберите групповой чат\n- Кнопка "Голосовой чат"');
+        }
+        
+        function testQR() {
+            alert('✅ QR-сканер с паролем!\n\nПроверьте:\n- Раздел "Безопасность"\n- Кнопка "Запустить сканер"\n- Пароль: 123456');
+        }
+        
+        function openMain() {
+            window.open('index.html', '_blank');
+        }
+        
+        function openGitHub() {
+            window.open('https://repaairferger-coder.github.io/nebula-sports-platform/', '_blank');
+        }
+    </script>
+</body>
+</html>
