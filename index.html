@@ -5502,9 +5502,14 @@ welcome();</textarea>
 
     <script>
         function showTab(tabName) {
+            console.log('Переключение на раздел:', tabName);
+            
             // Найти активный контент
             const activeContent = document.querySelector('.content.active');
             const targetContent = document.getElementById(tabName);
+            
+            console.log('Активный контент:', activeContent);
+            console.log('Целевой контент:', targetContent);
             
             // Если уже активен, не переключать
             if (activeContent === targetContent) return;
@@ -5523,13 +5528,19 @@ welcome();</textarea>
             
             // Добавить активный класс выбранному табу
             const targetTab = document.getElementById('tab-' + tabName);
+            console.log('Целевой таб:', targetTab);
             if (targetTab) {
                 targetTab.classList.add('active');
             }
             
             // Анимация входа
             setTimeout(() => {
-                targetContent.classList.add('active');
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                    console.log('Раздел активирован:', tabName);
+                } else {
+                    console.error('Раздел не найден:', tabName);
+                }
             }, 200);
         }
 
