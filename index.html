@@ -4018,6 +4018,10 @@
         </div>
 
         <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showTab('live')" id="tab-live">
+                <div class="nav-tab-icon">📺</div>
+                <div class="nav-tab-text">Трансляции</div>
+            </div>
             <div class="nav-tab" onclick="showTab('dashboard')" id="tab-dashboard">
                 <div class="nav-tab-icon">🏠</div>
                 <div class="nav-tab-text">Главная</div>
@@ -4061,7 +4065,7 @@
         </div>
 
         <!-- Dashboard -->
-        <div id="dashboard" class="content active">
+        <div id="dashboard" class="content">
             <div class="dashboard-grid">
                 <div class="card">
                     <div class="card-header">
@@ -4348,36 +4352,6 @@
 
         <!-- Travel -->
         <div id="travel" class="content">
-            <!-- Live Streams Section -->
-            <div class="live-streams-section">
-                <div class="section-title">📺 Прямые трансляции</div>
-                <div class="streams-grid">
-                    <div class="stream-card" onclick="openStream('football')">
-                        <div class="stream-thumbnail">⚽</div>
-                        <div class="stream-info">
-                            <div class="stream-title">Real Madrid vs Barcelona</div>
-                            <div class="stream-viewers">👥 125,430 зрителей</div>
-                            <div class="stream-status live">🔴 LIVE</div>
-                        </div>
-                    </div>
-                    <div class="stream-card" onclick="openStream('basketball')">
-                        <div class="stream-thumbnail">🏀</div>
-                        <div class="stream-info">
-                            <div class="stream-title">NBA Finals Game 7</div>
-                            <div class="stream-viewers">👥 89,200 зрителей</div>
-                            <div class="stream-status live">🔴 LIVE</div>
-                        </div>
-                    </div>
-                    <div class="stream-card" onclick="openStream('tennis')">
-                        <div class="stream-thumbnail">🎾</div>
-                        <div class="stream-info">
-                            <div class="stream-title">Wimbledon Final</div>
-                            <div class="stream-viewers">👥 67,800 зрителей</div>
-                            <div class="stream-status live">🔴 LIVE</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Transport Section -->
             <div class="transport-section">
