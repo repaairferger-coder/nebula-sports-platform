@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 Nebula Sports</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .status {
+            font-size: 1.2rem;
+            color: #10b981;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .feature {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .feature:last-child {
+            border-bottom: none;
+        }
+        
+        .qr-scanner {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            text-align: center;
+        }
+        
+        .qr-camera {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            background: #000;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .qr-overlay {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #8b5cf6;
+            border-radius: 10px;
+        }
+        
+        .qr-corners {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .qr-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #8b5cf6;
+        }
+        
+        .qr-corner.top-left {
+            top: -3px;
+            left: -3px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .qr-corner.top-right {
+            top: -3px;
+            right: -3px;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .qr-corner.bottom-left {
+            bottom: -3px;
+            left: -3px;
+            border-right: none;
+            border-top: none;
+        }
+        
+        .qr-corner.bottom-right {
+            bottom: -3px;
+            right: -3px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        .qr-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .qr-status.scanning {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        
+        .qr-status.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .qr-status.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🌌</div>
+        <h1 class="title">Nebula Sports</h1>
+        <div class="status">✅ Приложение работает!</div>
+        
+        <button class="button" onclick="startQRScanner()">🔍 QR-сканер</button>
+        <button class="button" onclick="showProfile()">👤 Профиль</button>
+        
+        <div class="qr-scanner">
+            <h3>📱 QR-сканер бейджиков</h3>
+            <div class="qr-camera">
+                <div class="qr-overlay">
+                    <div class="qr-corners">
+                        <div class="qr-corner top-left"></div>
+                        <div class="qr-corner top-right"></div>
+                        <div class="qr-corner bottom-left"></div>
+                        <div class="qr-corner bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="qr-status scanning" id="qrStatus">Наведите камеру на QR-код бейджа</div>
+        </div>
+        
+        <div class="features">
+            <h3>🎯 Доступные функции:</h3>
+            <div class="feature">📺 <strong>Live Streams</strong> - спортивные трансляции</div>
+            <div class="feature">🏠 <strong>Главная</strong> - статистика и быстрые действия</div>
+            <div class="feature">✈️ <strong>Путешествия</strong> - транспорт и отели</div>
+            <div class="feature">🎤 <strong>Голосовой чат</strong> - в диалогах</div>
+            <div class="feature">🤖 <strong>ИИ ассистент</strong> - умные ответы</div>
+            <div class="feature">🔒 <strong>QR-сканер</strong> - с паролем 123456</div>
+            <div class="feature">💪 <strong>Тренировки</strong> - фитнес программы</div>
+            <div class="feature">🥗 <strong>Питание</strong> - рецепты и доставка</div>
+            <div class="feature">🎮 <strong>Игры</strong> - мини-игры и турниры</div>
+            <div class="feature">👥 <strong>Сообщество</strong> - друзья и группы</div>
+            <div class="feature">🛒 <strong>Магазин</strong> - Nebula Coins</div>
+            <div class="feature">🏥 <strong>Здоровье</strong> - медицинские данные</div>
+            <div class="feature">⚙️ <strong>Админ панель</strong> - управление системой</div>
+        </div>
+    </div>
+
+    <script>
+        function startQRScanner() {
+            const status = document.getElementById('qrStatus');
+            status.textContent = 'Сканирование...';
+            status.className = 'qr-status scanning';
+            
+            setTimeout(() => {
+                const password = prompt('Введите пароль для доступа (123456):');
+                if (password === '123456') {
+                    status.textContent = '✅ Доступ разрешен! Уровень 5';
+                    status.className = 'qr-status success';
+                    alert('🎉 Добро пожаловать в админ режим!\n\nТеперь вы можете:\n• Сканировать бейджи сотрудников\n• Управлять системой\n• Просматривать аналитику');
+                } else {
+                    status.textContent = '❌ Неверный пароль';
+                    status.className = 'qr-status error';
+                }
+            }, 2000);
+        }
+
+        function showProfile() {
+            alert('👤 Профиль пользователя\n\nИмя: Дмитрий\nУровень: 5\nОпыт: 750/1000\n\n🏆 Награды:\n• Первая тренировка ✅\n• Спортсмен месяца ✅\n• Силач ⏳\n• Точность ⏳\n• Звезда ⏳\n• Огонь ⏳');
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🌌 Nebula Sports Platform загружен!');
+            console.log('📱 Простая версия готова к тестированию!');
+        });
+    </script>
+</body>
+</html>
