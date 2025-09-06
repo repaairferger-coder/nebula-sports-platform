@@ -37,7 +37,11 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            animation: logoPulse 2s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            animation: logoPulse 1s ease-in-out;
         }
         
         @keyframes logoPulse {
@@ -54,7 +58,11 @@
             border-radius: 25px;
             border: 1px solid rgba(148, 163, 184, 0.2);
             cursor: pointer;
-            animation: profilePulse 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .user-profile:hover {
+            animation: profilePulse 1s ease-in-out;
         }
         
         @keyframes profilePulse {
@@ -3500,7 +3508,11 @@
             height: 80px;
             border-radius: 50%;
             border: 3px solid #8b5cf6;
-            animation: avatarRotate 4s linear infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        .avatar-img:hover {
+            animation: avatarRotate 2s linear;
         }
         
         @keyframes avatarRotate {
@@ -5489,11 +5501,11 @@ welcome();</textarea>
                     <div class="profile-section">
                         <div class="section-title">🔒 Система безопасности</div>
                         <div class="security-profile">
-                            <div class="security-status">
-                                <div class="current-level">Текущий уровень: <span id="profile-security-level">3</span></div>
+                            <div class="security-status" id="security-status-profile" style="display: none;">
+                                <div class="current-level">Текущий уровень: <span id="profile-security-level">5</span></div>
                                 <div class="security-indicator">
                                     <div class="level-bar">
-                                        <div class="level-fill" id="profile-level-fill" style="width: 60%;"></div>
+                                        <div class="level-fill" id="profile-level-fill" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -5516,7 +5528,7 @@ welcome();</textarea>
                                 </div>
                             </div>
                             
-                            <div class="access-levels">
+                            <div class="access-levels" id="access-levels-profile" style="display: none;">
                                 <h4>🎯 Уровни доступа</h4>
                                 <div class="levels-grid">
                                     <div class="level-item">
@@ -8180,22 +8192,21 @@ VALUES ('Иван', 25);`
             }
         }
 
+        // База данных сотрудников
+        const employeeDatabase = {
+            'QR001': { name: 'Иван Петров', position: 'Менеджер', department: 'IT', level: 5 },
+            'QR002': { name: 'Мария Сидорова', position: 'Аналитик', department: 'Маркетинг', level: 3 },
+            'QR003': { name: 'Алексей Иванов', position: 'Разработчик', department: 'IT', level: 4 },
+            'QR004': { name: 'Елена Козлова', position: 'HR-менеджер', department: 'HR', level: 2 },
+            'QR005': { name: 'Дмитрий Смирнов', position: 'Администратор', department: 'IT', level: 5 }
+        };
+
         // QR-сканер в профиле
         let profileScannerActive = false;
         let profileScannerStream = null;
 
         function startProfileQRScanner() {
             if (profileScannerActive) return;
-            
-            // Запрос пароля
-            const password = prompt('🔒 Введите пароль для доступа к сканеру QR-кодов:\n(Тестовый пароль: 123456)');
-            
-            if (password !== '123456') {
-                alert('❌ Неверный пароль! Доступ запрещен.');
-                return;
-            }
-            
-            alert('✅ Пароль верный! Уровень доступа: 5 (Максимальный)\n\n🎯 Что происходит после ввода пароля:\n• Доступ к QR-сканеру бейджиков\n• Уровень безопасности повышается до 5\n• Открывается админ панель\n• Доступ к управлению пользователями\n• Доступ к аналитике и логам\n• Полные права администратора');
             
             profileScannerActive = true;
             const preview = document.getElementById('profile-scanner-preview');
@@ -8252,31 +8263,73 @@ VALUES ('Иван', 25);`
         }
 
         function simulateQRDetection() {
+            // Симулируем случайный QR-код из базы данных
+            const qrCodes = Object.keys(employeeDatabase);
+            const randomQR = qrCodes[Math.floor(Math.random() * qrCodes.length)];
+            const employee = employeeDatabase[randomQR];
+            
             const result = document.getElementById('profile-scan-result');
             const employeeInfo = document.getElementById('profile-employee-info');
             
+            // Показать информацию о сотруднике
             result.style.display = 'block';
             employeeInfo.innerHTML = `
-                <div style="margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
-                    <div><strong>Сотрудник:</strong> Иван Петров</div>
-                    <div><strong>Должность:</strong> Менеджер</div>
-                    <div><strong>Отдел:</strong> IT</div>
-                    <div><strong>Уровень доступа:</strong> 5 (Максимальный)</div>
-                    <div><strong>Время входа:</strong> ${new Date().toLocaleString()}</div>
+                <div style="margin-top: 10px; padding: 10px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border: 1px solid rgba(6, 182, 212, 0.3);">
+                    <div><strong>QR-код отсканирован:</strong> ${randomQR}</div>
+                    <div><strong>Сотрудник:</strong> ${employee.name}</div>
+                    <div><strong>Должность:</strong> ${employee.position}</div>
+                    <div><strong>Отдел:</strong> ${employee.department}</div>
+                    <div><strong>Максимальный уровень:</strong> ${employee.level}</div>
+                    <div style="margin-top: 10px; padding: 8px; background: rgba(245, 158, 11, 0.1); border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.3);">
+                        <strong>⚠️ Требуется пароль для активации доступа</strong>
+                    </div>
                 </div>
             `;
             
-            // Показать админ панель
-            const adminPanel = document.getElementById('admin-panel-profile');
-            adminPanel.style.display = 'block';
-            
-            // Обновить уровень безопасности
-            const securityLevel = document.getElementById('profile-security-level');
-            const levelFill = document.getElementById('profile-level-fill');
-            if (securityLevel) securityLevel.textContent = '5';
-            if (levelFill) levelFill.style.width = '100%';
-            
-            alert('🎉 QR-код успешно отсканирован!\n\n👤 Сотрудник: Иван Петров\n💼 Должность: Менеджер\n🏢 Отдел: IT\n🔒 Уровень доступа: 5 (Максимальный)\n\n⚙️ Админ панель активирована!');
+            // Запрос пароля после сканирования
+            setTimeout(() => {
+                const password = prompt(`🔒 Сотрудник ${employee.name} найден в базе данных!\n\nВведите пароль для активации уровня доступа ${employee.level}:\n(Тестовый пароль: 123456)`);
+                
+                if (password !== '123456') {
+                    alert('❌ Неверный пароль! Доступ запрещен.');
+                    employeeInfo.innerHTML += `
+                        <div style="margin-top: 10px; padding: 8px; background: rgba(239, 68, 68, 0.1); border-radius: 6px; border: 1px solid rgba(239, 68, 68, 0.3);">
+                            <strong>❌ Доступ запрещен - неверный пароль</strong>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Успешная авторизация
+                alert(`✅ Пароль верный! Доступ активирован!\n\n👤 Сотрудник: ${employee.name}\n💼 Должность: ${employee.position}\n🏢 Отдел: ${employee.department}\n🔒 Уровень доступа: ${employee.level}\n\n🎯 Что происходит после ввода пароля:\n• Активируется уровень безопасности ${employee.level}\n• Открывается админ панель\n• Доступ к управлению системой\n• Полные права администратора`);
+                
+                // Показать все скрытые элементы
+                const securityStatus = document.getElementById('security-status-profile');
+                const accessLevels = document.getElementById('access-levels-profile');
+                const adminPanel = document.getElementById('admin-panel-profile');
+                
+                securityStatus.style.display = 'block';
+                accessLevels.style.display = 'block';
+                adminPanel.style.display = 'block';
+                
+                // Обновить уровень безопасности
+                const securityLevel = document.getElementById('profile-security-level');
+                const levelFill = document.getElementById('profile-level-fill');
+                if (securityLevel) securityLevel.textContent = employee.level;
+                if (levelFill) levelFill.style.width = `${(employee.level / 5) * 100}%`;
+                
+                // Обновить информацию о сотруднике
+                employeeInfo.innerHTML = `
+                    <div style="margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                        <div><strong>✅ Авторизация успешна</strong></div>
+                        <div><strong>Сотрудник:</strong> ${employee.name}</div>
+                        <div><strong>Должность:</strong> ${employee.position}</div>
+                        <div><strong>Отдел:</strong> ${employee.department}</div>
+                        <div><strong>Уровень доступа:</strong> ${employee.level} (Активирован)</div>
+                        <div><strong>Время входа:</strong> ${new Date().toLocaleString()}</div>
+                    </div>
+                `;
+            }, 1000);
         }
 
         // Админ функции
