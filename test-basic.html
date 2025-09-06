@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TEST BASIC</title>
+    <style>
+        body {
+            background: red;
+            color: white;
+            font-size: 50px;
+            text-align: center;
+            padding: 50px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { background: red; }
+            50% { background: blue; }
+            100% { background: red; }
+        }
+        .test {
+            animation: rotate 2s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="test">🔄 ТЕСТ АНИМАЦИИ</div>
+    <div>Время: <span id="time"></span></div>
+    <div>Версия: test-basic.html</div>
+    <button onclick="alert('КНОПКА РАБОТАЕТ!')">ТЕСТ КНОПКИ</button>
+    
+    <script>
+        function updateTime() {
+            document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        console.log('TEST BASIC LOADED!');
+        alert('ТЕСТ ЗАГРУЖЕН!');
+    </script>
+</body>
+</html>
