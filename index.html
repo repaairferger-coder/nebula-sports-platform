@@ -37,6 +37,12 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .user-profile {
@@ -48,6 +54,13 @@
             border-radius: 25px;
             border: 1px solid rgba(148, 163, 184, 0.2);
             cursor: pointer;
+            animation: profilePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes profilePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(139, 92, 246, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(139, 92, 246, 0.6); }
+        }
             transition: all 0.3s ease;
         }
 
@@ -65,6 +78,33 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+        }
+        
+        .experience-bar {
+            width: 100px;
+            height: 6px;
+            background: rgba(148, 163, 184, 0.2);
+            border-radius: 3px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        
+        .experience-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            animation: progressGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.8); }
+        }
+        
+        .experience-text {
+            font-size: 0.7rem;
+            color: #94a3b8;
         }
 
         .user-info {
@@ -133,6 +173,12 @@
         .nav-tab:hover, .nav-tab.active {
             color: #8b5cf6;
             transform: translateY(-2px);
+            animation: buttonBounce 0.6s ease-in-out;
+        }
+        
+        @keyframes buttonBounce {
+            0%, 100% { transform: translateY(-2px); }
+            50% { transform: translateY(-8px); }
         }
 
         .nav-tab-icon {
@@ -195,6 +241,12 @@
             padding: 24px;
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease;
+            animation: cardFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
         }
 
         .card:hover {
@@ -1599,6 +1651,12 @@
             position: relative;
             overflow: hidden;
             border: 2px solid #8b5cf6;
+            animation: scannerPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes scannerPulse {
+            0%, 100% { border-color: #8b5cf6; box-shadow: 0 0 10px rgba(139, 92, 246, 0.3); }
+            50% { border-color: #06b6d4; box-shadow: 0 0 20px rgba(6, 182, 212, 0.6); }
         }
 
         .scanner-overlay {
@@ -1673,6 +1731,12 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            animation: buttonGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes buttonGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.6); }
         }
 
         .scanner-btn:hover {
@@ -3436,6 +3500,12 @@
             height: 80px;
             border-radius: 50%;
             border: 3px solid #8b5cf6;
+            animation: avatarRotate 4s linear infinite;
+        }
+        
+        @keyframes avatarRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .profile-info {
@@ -3486,6 +3556,65 @@
             font-weight: 600;
             margin-bottom: 16px;
             color: #f8fafc;
+        }
+        
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .reward-item {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            animation: rewardFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes rewardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+        
+        .reward-item.earned {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            animation: rewardGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes rewardGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(16, 185, 129, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.6); }
+        }
+        
+        .reward-item.pending {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .reward-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            animation: iconBounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .reward-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #f8fafc;
+        }
+        
+        .reward-status {
+            font-size: 0.8rem;
+            color: #94a3b8;
         }
 
         .stats-row {
@@ -4009,10 +4138,14 @@
                 <span class="logo-text">Nebula</span>
             </div>
             <div class="user-profile" onclick="showTab('account')">
-                <div class="user-avatar">👤</div>
+                <div class="user-avatar" style="animation: rotate 3s linear infinite;">👤</div>
                 <div class="user-info">
-                    <div class="user-name">Пользователь</div>
-                    <div class="user-level">Уровень 15</div>
+                    <div class="user-name">Дмитрий</div>
+                    <div class="user-level">Уровень 5</div>
+                    <div class="experience-bar">
+                        <div class="experience-fill" style="width: 75%;"></div>
+                    </div>
+                    <div class="experience-text">Опыт: 750/1000</div>
                 </div>
             </div>
         </div>
@@ -5158,6 +5291,42 @@ welcome();</textarea>
                     </div>
 
                     <div class="profile-section">
+                        <div class="section-title">🏆 Награды и достижения</div>
+                        <div class="rewards-grid">
+                            <div class="reward-item earned">
+                                <div class="reward-icon">🥇</div>
+                                <div class="reward-name">Первая тренировка</div>
+                                <div class="reward-status">✅ Получено</div>
+                            </div>
+                            <div class="reward-item earned">
+                                <div class="reward-icon">⭐</div>
+                                <div class="reward-name">Спортсмен месяца</div>
+                                <div class="reward-status">✅ Получено</div>
+                            </div>
+                            <div class="reward-item pending">
+                                <div class="reward-icon">💪</div>
+                                <div class="reward-name">Силач</div>
+                                <div class="reward-status">⏳ В процессе</div>
+                            </div>
+                            <div class="reward-item pending">
+                                <div class="reward-icon">🎯</div>
+                                <div class="reward-name">Точность</div>
+                                <div class="reward-status">⏳ В процессе</div>
+                            </div>
+                            <div class="reward-item pending">
+                                <div class="reward-icon">🌟</div>
+                                <div class="reward-name">Звезда</div>
+                                <div class="reward-status">⏳ В процессе</div>
+                            </div>
+                            <div class="reward-item pending">
+                                <div class="reward-icon">🔥</div>
+                                <div class="reward-name">Огонь</div>
+                                <div class="reward-status">⏳ В процессе</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
                         <div class="section-title">⚽ Любимые команды</div>
                         <div class="teams-list" id="favorite-teams">
                             <div class="team-item">🏆 Real Madrid</div>
@@ -5477,6 +5646,11 @@ welcome();</textarea>
     <script>
         function showTab(tabName) {
             console.log('Переключение на раздел:', tabName);
+            
+            // Обновить профиль пользователя
+            if (tabName === 'account') {
+                updateUserProfile();
+            }
             
             // Найти активный контент
             const activeContent = document.querySelector('.content.active');
@@ -7742,12 +7916,46 @@ VALUES ('Иван', 25);`
         document.head.appendChild(styleSheet);
 
         // Initialize everything when page loads
+        // Функция обновления профиля пользователя
+        function updateUserProfile() {
+            const profileName = document.getElementById('profile-name');
+            const profileEmail = document.getElementById('profile-email');
+            
+            if (profileName) {
+                profileName.textContent = 'Дмитрий';
+            }
+            if (profileEmail) {
+                profileEmail.textContent = 'dmitry@nebula.com';
+            }
+            
+            // Обновить опыт
+            const experienceFill = document.querySelector('.experience-fill');
+            if (experienceFill) {
+                experienceFill.style.width = '75%';
+            }
+            
+            // Обновить уровень
+            const userLevel = document.querySelector('.user-level');
+            if (userLevel) {
+                userLevel.textContent = 'Уровень 5';
+            }
+            
+            // Обновить опыт в тексте
+            const experienceText = document.querySelector('.experience-text');
+            if (experienceText) {
+                experienceText.textContent = 'Опыт: 750/1000';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             updateSecurityLevel(currentSecurityLevel);
             initializeAchievements();
             initializeSportsCards();
             initializeLeaderboard();
             showShopCategory('premium');
+            
+            // Обновить профиль при загрузке
+            updateUserProfile();
             
             // Add some initial logs
             addSecurityLog('Система запущена', 'Система', '✅ Инициализация завершена');
