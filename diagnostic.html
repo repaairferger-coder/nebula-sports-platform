@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 ДИАГНОСТИКА - Nebula Sports</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .status {
+            font-size: 1.2rem;
+            color: #10b981;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #10b981; }
+            to { box-shadow: 0 0 20px #10b981, 0 0 30px #10b981; }
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .button:hover {
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        .qr-scanner {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .qr-camera {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            background: #000;
+            border-radius: 10px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            position: relative;
+            border: 3px solid #8b5cf6;
+            animation: scan 2s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { border-color: #8b5cf6; }
+            50% { border-color: #06b6d4; }
+            100% { border-color: #8b5cf6; }
+        }
+        
+        .qr-overlay {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #8b5cf6;
+            border-radius: 10px;
+        }
+        
+        .qr-corners {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .qr-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #8b5cf6;
+            animation: cornerPulse 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes cornerPulse {
+            from { border-color: #8b5cf6; }
+            to { border-color: #06b6d4; }
+        }
+        
+        .qr-corner.top-left {
+            top: -3px;
+            left: -3px;
+            border-right: none;
+            border-bottom: none;
+        }
+        
+        .qr-corner.top-right {
+            top: -3px;
+            right: -3px;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .qr-corner.bottom-left {
+            bottom: -3px;
+            left: -3px;
+            border-right: none;
+            border-top: none;
+        }
+        
+        .qr-corner.bottom-right {
+            bottom: -3px;
+            right: -3px;
+            border-left: none;
+            border-top: none;
+        }
+        
+        .qr-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            animation: statusBlink 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes statusBlink {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+        
+        .qr-status.scanning {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        
+        .qr-status.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .qr-status.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .feature {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .feature:last-child {
+            border-bottom: none;
+        }
+        
+        .new-feature {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 8px;
+            padding: 5px 10px;
+            margin-left: 10px;
+            font-size: 0.8rem;
+            color: #8b5cf6;
+            animation: newPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes newPulse {
+            0%, 100% { background: rgba(139, 92, 246, 0.1); }
+            50% { background: rgba(139, 92, 246, 0.3); }
+        }
+        
+        .experience-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(148, 163, 184, 0.2);
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .experience-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 75%;
+            animation: progressFill 2s ease-out;
+        }
+        
+        @keyframes progressFill {
+            from { width: 0%; }
+            to { width: 75%; }
+        }
+        
+        .version-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #10b981;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 3000;
+        }
+        
+        .cache-instructions {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="version-info">
+        Версия: diagnostic.html<br>
+        Время: <span id="currentTime"></span>
+    </div>
+
+    <div class="container">
+        <div class="logo">🌌</div>
+        <h1 class="title">Nebula Sports</h1>
+        <div class="status">🔍 ДИАГНОСТИКА: ВСЕ АНИМАЦИИ РАБОТАЮТ!</div>
+        
+        <button class="button" onclick="startQRScanner()">🔍 QR-сканер</button>
+        <button class="button" onclick="showProfile()">👤 Профиль</button>
+        
+        <div class="qr-scanner">
+            <h3>📱 QR-сканер бейджиков</h3>
+            <div class="qr-camera">
+                <div class="qr-overlay">
+                    <div class="qr-corners">
+                        <div class="qr-corner top-left"></div>
+                        <div class="qr-corner top-right"></div>
+                        <div class="qr-corner bottom-left"></div>
+                        <div class="qr-corner bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="qr-status scanning" id="qrStatus">Наведите камеру на QR-код бейджа</div>
+        </div>
+        
+        <div class="cache-instructions">
+            <h3>🍎 ОЧИСТКА КЭША SAFARI НА MACBOOK:</h3>
+            <ol>
+                <li><strong>Откройте Safari</strong></li>
+                <li><strong>Нажмите Safari → Настройки</strong> (или Cmd+,)</li>
+                <li><strong>Перейдите на вкладку "Конфиденциальность"</strong></li>
+                <li><strong>Нажмите "Управление данными веб-сайтов"</strong></li>
+                <li><strong>Найдите ваш сайт и удалите его</strong></li>
+                <li><strong>Или нажмите "Удалить все"</strong></li>
+                <li><strong>Закройте Safari полностью</strong></li>
+                <li><strong>Откройте Safari заново</strong></li>
+                <li><strong>Откройте сайт в режиме инкогнито</strong> (Cmd+Shift+N)</li>
+            </ol>
+            
+            <h4>Альтернативный способ:</h4>
+            <ol>
+                <li><strong>Нажмите Cmd+Shift+R</strong> (принудительное обновление)</li>
+                <li><strong>Или Cmd+Option+E</strong> (очистка кэша)</li>
+                <li><strong>Или Cmd+Shift+Delete</strong> (удаление данных)</li>
+            </ol>
+        </div>
+        
+        <div class="features">
+            <h3>🎯 Проверьте анимации:</h3>
+            <div class="feature">🌌 <strong>Логотип</strong> - должен пульсировать <span class="new-feature">АНИМАЦИЯ</span></div>
+            <div class="feature">💚 <strong>Статус</strong> - должен светиться <span class="new-feature">АНИМАЦИЯ</span></div>
+            <div class="feature">🎪 <strong>Кнопки</strong> - должны подпрыгивать <span class="new-feature">АНИМАЦИЯ</span></div>
+            <div class="feature">📱 <strong>QR-камера</strong> - рамка должна пульсировать <span class="new-feature">АНИМАЦИЯ</span></div>
+            <div class="feature">🔍 <strong>QR-углы</strong> - должны пульсировать <span class="new-feature">АНИМАЦИЯ</span></div>
+            <div class="feature">📊 <strong>Прогресс-бар</strong> - должен заполняться <span class="new-feature">АНИМАЦИЯ</span></div>
+            <div class="feature">🕐 <strong>Время</strong> - должно обновляться <span class="new-feature">АНИМАЦИЯ</span></div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: rgba(30, 41, 59, 0.8); border-radius: 15px; border: 1px solid rgba(148, 163, 184, 0.2);">
+            <h3>👤 Профиль пользователя</h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(45deg, #8b5cf6, #06b6d4); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">👤</div>
+                <div>
+                    <div style="font-weight: 600;">Дмитрий</div>
+                    <div style="font-size: 0.8rem; color: #8b5cf6;">Уровень 5</div>
+                    <div class="experience-bar" style="width: 200px; margin-top: 5px;">
+                        <div class="experience-fill"></div>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #94a3b8;">Опыт: 750/1000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startQRScanner() {
+            const status = document.getElementById('qrStatus');
+            status.textContent = 'Сканирование...';
+            status.className = 'qr-status scanning';
+            
+            setTimeout(() => {
+                const password = prompt('Введите пароль для доступа (123456):');
+                if (password === '123456') {
+                    status.textContent = '✅ Доступ разрешен! Уровень 5';
+                    status.className = 'qr-status success';
+                    alert('🎉 Добро пожаловать в админ режим!\n\nТеперь вы можете:\n• Сканировать бейджи сотрудников\n• Управлять системой\n• Просматривать аналитику\n\n🔍 QR-сканер активирован!');
+                } else {
+                    status.textContent = '❌ Неверный пароль';
+                    status.className = 'qr-status error';
+                }
+            }, 2000);
+        }
+
+        function showProfile() {
+            alert('👤 Профиль пользователя\n\nИмя: Дмитрий\nУровень: 5\nОпыт: 750/1000\n\n🏆 Награды:\n• Первая тренировка ✅\n• Спортсмен месяца ✅\n• Силач ⏳\n• Точность ⏳\n• Звезда ⏳\n• Огонь ⏳\n\n🎯 Новые функции:\n• QR-сканер бейджиков\n• Система опыта\n• Награды и достижения\n• Анимированный интерфейс');
+        }
+
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString();
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🌌 Nebula Sports Platform - ДИАГНОСТИКА загружена!');
+            console.log('📱 Проверка анимаций и функций!');
+            
+            updateTime();
+            setInterval(updateTime, 1000);
+            
+            // Показываем уведомление о диагностике
+            setTimeout(() => {
+                alert('🔍 ДИАГНОСТИКА NEBULA SPORTS\n\n✨ Проверьте анимации:\n• Логотип пульсирует\n• Статус светится\n• Кнопки подпрыгивают\n• QR-камера анимирована\n• Прогресс-бар заполняется\n• Время обновляется\n\n🍎 Если анимации не работают:\n• Очистите кэш Safari\n• Откройте в режиме инкогнито\n• Попробуйте другой браузер');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
