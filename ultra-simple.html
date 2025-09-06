@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ULTRA SIMPLE TEST</title>
+    <style>
+        body {
+            background: red;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            padding: 50px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { background: red; }
+            50% { background: blue; }
+            100% { background: red; }
+        }
+        .logo {
+            font-size: 100px;
+            animation: rotate 2s linear infinite;
+            background: yellow;
+            color: black;
+            padding: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 20px;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .button {
+            display: block;
+            width: 300px;
+            height: 80px;
+            background: green;
+            color: white;
+            font-size: 30px;
+            margin: 20px auto;
+            border: 5px solid yellow;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .qr {
+            width: 200px;
+            height: 200px;
+            background: black;
+            border: 10px solid purple;
+            margin: 20px auto;
+            position: relative;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { border-color: purple; }
+            50% { border-color: orange; }
+            100% { border-color: purple; }
+        }
+        .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 5px solid red;
+            animation: cornerBlink 0.5s infinite;
+        }
+        @keyframes cornerBlink {
+            0% { border-color: red; }
+            50% { border-color: yellow; }
+            100% { border-color: red; }
+        }
+        .corner.top-left { top: -5px; left: -5px; border-right: none; border-bottom: none; }
+        .corner.top-right { top: -5px; right: -5px; border-left: none; border-bottom: none; }
+        .corner.bottom-left { bottom: -5px; left: -5px; border-right: none; border-top: none; }
+        .corner.bottom-right { bottom: -5px; right: -5px; border-left: none; border-top: none; }
+        .progress {
+            width: 400px;
+            height: 30px;
+            background: white;
+            border: 5px solid black;
+            margin: 20px auto;
+            position: relative;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, red, blue);
+            animation: fill 3s ease-in-out infinite;
+        }
+        @keyframes fill {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
+        }
+        .time {
+            font-size: 50px;
+            color: yellow;
+            text-shadow: 3px 3px 6px black;
+            animation: timePulse 1s infinite;
+        }
+        @keyframes timePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">🌌</div>
+    <h1>NEBULA SPORTS</h1>
+    <div class="time">Время: <span id="time"></span></div>
+    
+    <button class="button" onclick="alert('КНОПКА РАБОТАЕТ!')">ТЕСТ КНОПКИ</button>
+    
+    <div class="qr">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px;">QR КАМЕРА</div>
+    </div>
+    
+    <div class="progress">
+        <div class="progress-fill"></div>
+    </div>
+    
+    <div style="font-size: 20px; margin-top: 30px;">
+        <div>✅ Логотип вращается</div>
+        <div>✅ Фон мигает</div>
+        <div>✅ Кнопка подпрыгивает</div>
+        <div>✅ QR рамка пульсирует</div>
+        <div>✅ Углы мигают</div>
+        <div>✅ Прогресс заполняется</div>
+        <div>✅ Время пульсирует</div>
+    </div>
+    
+    <script>
+        function updateTime() {
+            document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        console.log('ULTRA SIMPLE TEST LOADED!');
+        alert('ULTRA SIMPLE TEST ЗАГРУЖЕН!\n\nПроверьте анимации:\n• Логотип вращается\n• Фон мигает\n• Кнопка подпрыгивает\n• QR рамка пульсирует\n• Углы мигают\n• Прогресс заполняется\n• Время пульсирует');
+    </script>
+</body>
+</html>
