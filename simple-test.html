@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIMPLE TEST</title>
+    <style>
+        body {
+            background: red;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            padding: 50px;
+        }
+        .logo {
+            font-size: 100px;
+            background: yellow;
+            color: black;
+            padding: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 20px;
+        }
+        .button {
+            display: block;
+            width: 300px;
+            height: 80px;
+            background: green;
+            color: white;
+            font-size: 30px;
+            margin: 20px auto;
+            border: 5px solid yellow;
+        }
+        .qr {
+            width: 200px;
+            height: 200px;
+            background: black;
+            border: 10px solid purple;
+            margin: 20px auto;
+            position: relative;
+        }
+        .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 5px solid red;
+        }
+        .corner.top-left { top: -5px; left: -5px; border-right: none; border-bottom: none; }
+        .corner.top-right { top: -5px; right: -5px; border-left: none; border-bottom: none; }
+        .corner.bottom-left { bottom: -5px; left: -5px; border-right: none; border-top: none; }
+        .corner.bottom-right { bottom: -5px; right: -5px; border-left: none; border-top: none; }
+        .progress {
+            width: 400px;
+            height: 30px;
+            background: white;
+            border: 5px solid black;
+            margin: 20px auto;
+            position: relative;
+        }
+        .progress-fill {
+            height: 100%;
+            background: red;
+            width: 75%;
+        }
+        .time {
+            font-size: 50px;
+            color: yellow;
+            text-shadow: 3px 3px 6px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">🌌</div>
+    <h1>NEBULA SPORTS</h1>
+    <div class="time">Время: <span id="time"></span></div>
+    
+    <button class="button" onclick="alert('КНОПКА РАБОТАЕТ!')">ТЕСТ КНОПКИ</button>
+    
+    <div class="qr">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px;">QR КАМЕРА</div>
+    </div>
+    
+    <div class="progress">
+        <div class="progress-fill"></div>
+    </div>
+    
+    <div style="font-size: 20px; margin-top: 30px; background: black; padding: 20px; border: 5px solid yellow;">
+        <div>✅ Логотип (желтый круг)</div>
+        <div>✅ Фон (красный)</div>
+        <div>✅ Кнопка (зеленая)</div>
+        <div>✅ QR рамка (фиолетовая)</div>
+        <div>✅ Углы (красные)</div>
+        <div>✅ Прогресс (красная полоса)</div>
+        <div>✅ Время (желтый текст)</div>
+    </div>
+    
+    <script>
+        function updateTime() {
+            document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        console.log('SIMPLE TEST LOADED!');
+        alert('SIMPLE TEST ЗАГРУЖЕН!\n\nПроверьте элементы:\n• Логотип (желтый круг)\n• Фон (красный)\n• Кнопка (зеленая)\n• QR рамка (фиолетовая)\n• Углы (красные)\n• Прогресс (красная полоса)\n• Время (желтый текст)');
+    </script>
+</body>
+</html>
